@@ -10,6 +10,7 @@ public class Enemy : MonoBehaviour
     public int rotationOffset = 90;
     private float timeSinceLastFire = 0f;
     public float fireRate = 1.5f;
+    public string EnemyType;
 
     public Player player;
     public Transform firePoint;
@@ -31,12 +32,19 @@ public class Enemy : MonoBehaviour
             transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
         }
 
+        if (EnemyType == "gunner") {
+            Gunner();
+        }
+    }
+
+    private void Gunner() {
         if (timeSinceLastFire >= fireRate) {
             Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
             timeSinceLastFire = 0f;
         } else {
             timeSinceLastFire += Time.deltaTime;
         }
+
     }
 
     public void TakeDamage(int damage) {
