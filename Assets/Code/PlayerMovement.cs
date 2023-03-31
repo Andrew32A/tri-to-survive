@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     public float moveSpeed = 8.5f;
-    public int rotationOffset = 0;
+    public int rotationOffset = 90;
 
     private Vector2 movement;
     private Vector2 mousePos;
