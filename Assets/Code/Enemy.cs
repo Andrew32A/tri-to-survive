@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    public int health = 100;
+    public int maxHealth = 100;
     private int currentHealth;
     public int rotationOffset = 90;
     private float timeSinceLastFire = 0f;
@@ -19,7 +19,7 @@ public class Enemy : MonoBehaviour
 
     void Start()
     {
-        currentHealth = health;
+        currentHealth = maxHealth;
     }
 
     void Update()

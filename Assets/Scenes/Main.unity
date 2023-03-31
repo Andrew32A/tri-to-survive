@@ -622,12 +622,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 209a2c7b943324b8e9d3faba0890da7f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 100
+  maxHealth: 100
   rotationOffset: 90
   fireRate: 1.5
   player: {fileID: 1689420087}
   firePoint: {fileID: 1216388192}
-  bulletPrefab: {fileID: 2997414979421653399, guid: 343a3aa59ad504e048dabd883848bd11, type: 3}
+  bulletPrefab: {fileID: 2997414979421653399, guid: b61bd6cecf2464ee6861bb221950e8f1, type: 3}
 --- !u!1 &619394800
 GameObject:
   m_ObjectHideFlags: 0
@@ -6196,6 +6196,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a70efe9843cc84e95a204b608318b799, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxHealth: 75
   moveSpeed: 12
   rotationOffset: 90
 --- !u!96 &1689420088
