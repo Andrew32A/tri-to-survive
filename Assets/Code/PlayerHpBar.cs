@@ -11,12 +11,12 @@ public class PlayerHpBar : MonoBehaviour
 
     public void UpdateHpBar(int hp) {
         // TODO: add an explosion animation with unity's particle system and screenshake
-        
-        if (hp <= 25) {
+
+        if (hp < 25) {
             Destroy(low);
-        } else if (hp <= 50) {
+        } else if (hp < 50) {
             Destroy(medium);
-        } else if (hp <= 75) {
+        } else if (hp < 75) {
             Destroy(high);
         }
     }
