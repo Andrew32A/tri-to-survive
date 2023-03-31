@@ -6,8 +6,13 @@ public class Enemy : MonoBehaviour
 {
     public int health = 100;
     private int currentHealth;
+    public int rotationOffset = 90;
+    private float timeSinceLastFire = 0f;
+    public float fireRate = 1.5f;
 
     public Player player;
+    public Transform firePoint;
+    public GameObject bulletPrefab;
 
     // TODO: add death explosion here and in Die method
     // public GameObject deathEffect;
@@ -17,13 +22,19 @@ public class Enemy : MonoBehaviour
         currentHealth = health;
     }
 
-    // Update is called once per frame
     void Update()
     {
-        if(player != null) {
+        if (player != null) {
             Vector3 direction = player.transform.position - transform.position;
-            float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+            float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg - rotationOffset;
             transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+        }
+
+        if (timeSinceLastFire >= fireRate) {
+            Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+            timeSinceLastFire = 0f;
+        } else {
+            timeSinceLastFire += Time.deltaTime;
         }
     }
 
