@@ -4,15 +4,16 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
+    public string EnemyType;
     public int maxHealth = 100;
     private int currentHealth;
     public EnemyHpBar HpBar;
     public int rotationOffset = 90;
     private float timeSinceLastFire = 0f;
     public float fireRate = 1.5f;
-    public string EnemyType;
+    public float movementSpeed = 5f;
 
-    public Player player;
+    public Transform player;
     public Transform firePoint;
     public GameObject bulletPrefab;
 
@@ -22,14 +23,24 @@ public class Enemy : MonoBehaviour
     void Start()
     {
         currentHealth = maxHealth;
+
+        if (EnemyType == "chaser") {
+            movementSpeed = 3f;
+        } else if (EnemyType == "gunner") {
+            movementSpeed = 0.5f;
+        }
     }
 
     void Update()
     {
         if (player != null) {
-            Vector3 direction = player.transform.position - transform.position;
+            // look at player
+            Vector3 direction = player.position - transform.position;
             float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg - rotationOffset;
             transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+
+            // move towards player
+            transform.position += direction.normalized * movementSpeed * Time.deltaTime;
         }
 
         if (EnemyType == "gunner") {
