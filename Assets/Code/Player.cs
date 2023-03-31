@@ -6,6 +6,7 @@ public class Player : MonoBehaviour
 {
     public int maxHealth = 75;
     private int currentHealth;
+    public PlayerHpBar HpBar;
     public float moveSpeed = 8.5f;
     public int rotationOffset = 90;
 
@@ -41,7 +42,7 @@ public class Player : MonoBehaviour
 
     public void TakeDamage(int damage) {
         currentHealth -= damage;
-
+        HpBar.UpdateHpBar(currentHealth);
         if (currentHealth <= 0) {
             Die();
         }
