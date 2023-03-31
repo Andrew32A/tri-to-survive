@@ -6,6 +6,7 @@ public class Enemy : MonoBehaviour
 {
     public int maxHealth = 100;
     private int currentHealth;
+    public EnemyHpBar HpBar;
     public int rotationOffset = 90;
     private float timeSinceLastFire = 0f;
     public float fireRate = 1.5f;
@@ -40,7 +41,7 @@ public class Enemy : MonoBehaviour
 
     public void TakeDamage(int damage) {
         currentHealth -= damage;
-
+        HpBar.UpdateHpBar(currentHealth);
         if (currentHealth <= 0) {
             Die();
         }
