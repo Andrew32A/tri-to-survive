@@ -507,6 +507,7 @@ GameObject:
   - component: {fileID: 530080556}
   - component: {fileID: 530080555}
   - component: {fileID: 530080557}
+  - component: {fileID: 530080558}
   m_Layer: 0
   m_Name: BasicEnemy
   m_TagString: Untagged
@@ -609,6 +610,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &530080558
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 530080554}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 209a2c7b943324b8e9d3faba0890da7f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 100
 --- !u!1 &619394800
 GameObject:
   m_ObjectHideFlags: 0
