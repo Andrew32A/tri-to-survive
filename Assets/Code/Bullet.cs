@@ -18,7 +18,9 @@ public class Bullet : MonoBehaviour
         Enemy enemy = hitInfo.GetComponent<Enemy>();
         if (enemy != null) {
             enemy.TakeDamage(damage);
+            Destroy(gameObject);
+        } else if (hitInfo.name == "BorderTop" || hitInfo.name == "BorderBottom" || hitInfo.name == "BorderLeft" || hitInfo.name == "BorderRight") {
+            Destroy(gameObject);
         }
-        Destroy(gameObject);
     }
 }
