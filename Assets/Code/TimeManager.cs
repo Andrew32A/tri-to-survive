@@ -14,7 +14,7 @@ public class TimeManager : MonoBehaviour
     private LensDistortion lensDistortion;
 
     void Start() {
-        // get the DepthOfField component from the post-processing volume
+        // get the components from the post-processing volume
         postProcessVolume.profile.TryGet(out depthOfField);
         postProcessVolume.profile.TryGet(out vignette);
         postProcessVolume.profile.TryGet(out lensDistortion);
@@ -23,7 +23,8 @@ public class TimeManager : MonoBehaviour
     void Update() {
         Time.timeScale += (1f / slowdownLength) * Time.unscaledDeltaTime;
         Time.timeScale = Mathf.Clamp (Time.timeScale, 0f, 1f);
-        // disable depth of field effect when not in bullet time
+
+        // disable post processing effect when not in bullet time
         depthOfField.active = (Time.timeScale < 1f);
         vignette.active = (Time.timeScale < 1f);
         lensDistortion.active = (Time.timeScale < 1f);

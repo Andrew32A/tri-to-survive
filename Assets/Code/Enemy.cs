@@ -16,6 +16,7 @@ public class Enemy : MonoBehaviour
     public Transform player;
     public Transform firePoint;
     public GameObject bulletPrefab;
+    public Animator EnemyFireSquish;
 
     // TODO: add death explosion here and in Die method
     // public GameObject deathEffect;
@@ -50,6 +51,10 @@ public class Enemy : MonoBehaviour
 
     private void Gunner() {
         if (timeSinceLastFire >= fireRate) {
+            // play shoot animation squish
+            EnemyFireSquish.SetTrigger("Fire");
+
+            // spawn enemy bullet prefab
             Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
             timeSinceLastFire = 0f;
         } else {
