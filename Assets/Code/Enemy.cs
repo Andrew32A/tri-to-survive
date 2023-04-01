@@ -13,6 +13,10 @@ public class Enemy : MonoBehaviour
     public float fireRate = 1.5f;
     public float movementSpeed = 5f;
 
+    public GameObject coinPrefab;
+    public float dropRadius = 0.5f;
+    public int numCoins = 5;
+
     public Transform player;
     public Transform firePoint;
     public GameObject bulletPrefab;
@@ -78,5 +82,11 @@ public class Enemy : MonoBehaviour
         // TODO: add death explosion
         // Instantiate(deathEffect, transform.position, Quaternion.identity);
         Destroy(gameObject);
+
+        // drop coins
+        for (int i = 0; i < numCoins; i++) {
+            Vector2 randomPosition = Random.insideUnitCircle.normalized * dropRadius;
+            Instantiate(coinPrefab, transform.position + new Vector3(randomPosition.x, randomPosition.y, 0f), Quaternion.identity);
+        }
     }
 }
