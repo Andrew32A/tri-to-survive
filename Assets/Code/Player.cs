@@ -16,6 +16,8 @@ public class Player : MonoBehaviour
     private Camera cam;
     private Rigidbody2D rb;
 
+    public TimeManager timeManager;
+
     void Start()
     {
         currentHealth = maxHealth;
@@ -29,6 +31,11 @@ public class Player : MonoBehaviour
         movement.y = Input.GetAxis("Vertical");
 
         mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
+
+        // trigger bullet time
+        if (Input.GetButtonDown("Fire2")) {
+            timeManager.BulletTime();
+        }
     }
 
     void FixedUpdate() {
