@@ -14,6 +14,9 @@ public class TimeManager : MonoBehaviour
     private float originalVolume;
     public float lowPassFilterCutoff = 5f;
 
+    private AudioLowPassFilter lowPassFilter;
+    private AudioReverbFilter reverbFilter;
+
     public Volume postProcessVolume;
     private DepthOfField depthOfField;
     private Vignette vignette;
@@ -28,6 +31,10 @@ public class TimeManager : MonoBehaviour
         // store the original pitch and volume of the audio source
         originalPitch = audioSource.pitch;
         originalVolume = audioSource.volume;
+
+        // get components
+        lowPassFilter = audioSource.GetComponent<AudioLowPassFilter>();
+        reverbFilter = audioSource.GetComponent<AudioReverbFilter>();
     }
 
     void Update() {
@@ -42,20 +49,15 @@ public class TimeManager : MonoBehaviour
         // set min and max audio pitch
         audioSource.pitch = Mathf.Clamp(audioSource.pitch, 0.8f, 1f);
         
-        // raise the pitch slowly back to normal
-        if (Time.timeScale >= 1f)
-        {
-            audioSource.pitch = Mathf.Lerp(audioSource.pitch, originalPitch, Time.deltaTime);
-        }
-
-        // lower the volume by 50% when in bullet time
         if (Time.timeScale < 1f) {
+            audioSource.pitch = Mathf.Lerp(audioSource.pitch, originalPitch, Time.deltaTime);
             audioSource.volume = originalVolume * 0.5f;
             audioSource.GetComponent<AudioLowPassFilter>().cutoffFrequency = lowPassFilterCutoff;
-        }
-        else {
+            reverbFilter.enabled = true; // enable reverb when in slow motion
+        } else {
             audioSource.volume = originalVolume;
             audioSource.GetComponent<AudioLowPassFilter>().cutoffFrequency = 22000;
+            reverbFilter.enabled = false; // disable reverb when not in slow motion
         }
     }
 
