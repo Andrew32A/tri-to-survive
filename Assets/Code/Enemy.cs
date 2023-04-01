@@ -59,8 +59,11 @@ public class Enemy : MonoBehaviour
     }
 
     public void TakeDamage(int damage) {
+        // update hp
         currentHealth -= damage;
         HpBar.UpdateHpBar(currentHealth);
+
+        // check if enemy died
         if (currentHealth <= 0) {
             Die();
         }
