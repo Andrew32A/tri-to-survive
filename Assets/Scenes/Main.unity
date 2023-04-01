@@ -1712,7 +1712,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slowdownFactor: 0.05
-  slowdownLength: 5
+  slowdownLength: 4
 --- !u!1 &854079170
 GameObject:
   m_ObjectHideFlags: 0
