@@ -1713,6 +1713,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   slowdownFactor: 0.05
   slowdownLength: 4
+  postProcessVolume: {fileID: 1761349307}
 --- !u!1 &854079170
 GameObject:
   m_ObjectHideFlags: 0
