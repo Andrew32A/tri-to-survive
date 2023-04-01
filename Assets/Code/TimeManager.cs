@@ -8,9 +8,11 @@ public class TimeManager : MonoBehaviour
 {
     public float slowdownFactor = 0.05f; // lower the number, the slower it will be
     public float slowdownLength = 4f;
-    
+
     public AudioSource audioSource;
     private float originalPitch;
+    private float originalVolume;
+    public float lowPassFilterCutoff = 5f;
 
     public Volume postProcessVolume;
     private DepthOfField depthOfField;
@@ -23,8 +25,9 @@ public class TimeManager : MonoBehaviour
         postProcessVolume.profile.TryGet(out vignette);
         postProcessVolume.profile.TryGet(out lensDistortion);
 
-        // store the original pitch of the audio source
+        // store the original pitch and volume of the audio source
         originalPitch = audioSource.pitch;
+        originalVolume = audioSource.volume;
     }
 
     void Update() {
@@ -43,6 +46,16 @@ public class TimeManager : MonoBehaviour
         if (Time.timeScale >= 1f)
         {
             audioSource.pitch = Mathf.Lerp(audioSource.pitch, originalPitch, Time.deltaTime);
+        }
+
+        // lower the volume by 50% when in bullet time
+        if (Time.timeScale < 1f) {
+            audioSource.volume = originalVolume * 0.5f;
+            audioSource.GetComponent<AudioLowPassFilter>().cutoffFrequency = lowPassFilterCutoff;
+        }
+        else {
+            audioSource.volume = originalVolume;
+            audioSource.GetComponent<AudioLowPassFilter>().cutoffFrequency = 22000;
         }
     }
 
