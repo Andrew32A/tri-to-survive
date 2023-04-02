@@ -24,7 +24,7 @@ public class TimeManager : MonoBehaviour
 
     void Start() {
         // get the components from the post-processing volume
-        postProcessVolume.profile.TryGet(out depthOfField);
+        // postProcessVolume.profile.TryGet(out depthOfField);
         postProcessVolume.profile.TryGet(out vignette);
         postProcessVolume.profile.TryGet(out lensDistortion);
 
@@ -42,7 +42,7 @@ public class TimeManager : MonoBehaviour
         Time.timeScale = Mathf.Clamp(Time.timeScale, 0f, 1f);
 
         // disable post processing effect when not in bullet time
-        depthOfField.active = (Time.timeScale < 1f);
+        // depthOfField.active = (Time.timeScale < 1f);
         vignette.active = (Time.timeScale < 1f);
         lensDistortion.active = (Time.timeScale < 1f);
 
