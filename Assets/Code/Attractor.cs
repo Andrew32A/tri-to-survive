@@ -43,11 +43,10 @@ public class Attractor : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter2D(Collision2D collision) {
-        // check if the coin collided with the player
-        if (collision.gameObject.CompareTag("Player"))
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.CompareTag("Player"))
         {
-            // destroy the coin
             Destroy(gameObject);
         }
     }
