@@ -28,6 +28,7 @@ public class Enemy : MonoBehaviour
     void Start()
     {
         currentHealth = maxHealth;
+        player = GameObject.FindGameObjectWithTag("Player").transform;
 
         if (EnemyType == "chaser") {
             movementSpeed = 3f;
