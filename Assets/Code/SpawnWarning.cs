@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SpawnWarning : MonoBehaviour
 {
-    public float blinkInterval = 0.5f;
+    public float blinkInterval = 0.2f;
     private float timeSinceLastBlink = 0f;
     private UnityEngine.Rendering.Universal.Light2D warningLight;
 
