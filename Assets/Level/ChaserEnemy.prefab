@@ -447,6 +447,7 @@ MonoBehaviour:
   firePoint: {fileID: 1423473833009778622}
   bulletPrefab: {fileID: 2997414979421653399, guid: b61bd6cecf2464ee6861bb221950e8f1, type: 3}
   EnemyFireSquish: {fileID: 0}
+  enemySpark: {fileID: 2681502675502265648, guid: 862775b7fe1e94a478924b516ddf8b05, type: 3}
 --- !u!1 &1423473832385019227
 GameObject:
   m_ObjectHideFlags: 0

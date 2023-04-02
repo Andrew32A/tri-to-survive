@@ -22,6 +22,9 @@ public class Enemy : MonoBehaviour
     public GameObject bulletPrefab;
     public Animator EnemyFireSquish;
 
+    public ParticleSystem enemySpark;
+    private float enemySparkDuration = 0.5f;
+
     // TODO: add death explosion here and in Die method
     // public GameObject deathEffect;
 
@@ -72,6 +75,11 @@ public class Enemy : MonoBehaviour
         // update hp
         currentHealth -= damage;
         HpBar.UpdateHpBar(currentHealth);
+
+        // spawn and play unity's particle system for spark
+        ParticleSystem enemySparkInstance = Instantiate(enemySpark, transform.position, Quaternion.identity);
+        enemySparkInstance.Play();
+        Destroy(enemySparkInstance.gameObject, enemySparkDuration);
 
         // check if enemy died
         if (currentHealth <= 0) {
