@@ -22,6 +22,7 @@ public class Enemy : MonoBehaviour
     public GameObject bulletPrefab;
     public Animator EnemyFireSquish;
 
+    public ParticleSystem enemyDeathExplosion;
     public ParticleSystem enemySpark;
     private float enemySparkDuration = 0.5f;
 
@@ -89,7 +90,11 @@ public class Enemy : MonoBehaviour
 
     void Die() {
         // TODO: add death explosion
-        // Instantiate(deathEffect, transform.position, Quaternion.identity);
+        ParticleSystem enemyDeathInstance = Instantiate(enemyDeathExplosion, transform.position, Quaternion.identity);
+        enemyDeathInstance.Play();
+        Destroy(enemyDeathInstance.gameObject, enemySparkDuration);
+
+        // remove enemy from scene
         Destroy(gameObject);
 
         // drop coins
