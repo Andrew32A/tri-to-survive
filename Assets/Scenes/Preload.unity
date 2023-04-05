@@ -959,9 +959,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1068313081}
-        m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
-        m_MethodName: PlayGame
+      - m_Target: {fileID: 1460766229}
+        m_TargetAssemblyTypeName: LevelLoader, Assembly-CSharp
+        m_MethodName: NextLevel
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1079,6 +1079,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5554308340214524096, guid: 92b943b4b44c04057a431e8428b17d36, type: 3}
+      propertyPath: transitionTime
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6727946097608203880, guid: 92b943b4b44c04057a431e8428b17d36, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -1134,3 +1138,14 @@ Animator:
   m_CorrespondingSourceObject: {fileID: 6727946097502863399, guid: 92b943b4b44c04057a431e8428b17d36, type: 3}
   m_PrefabInstance: {fileID: 1460766227}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1460766229 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5554308340214524096, guid: 92b943b4b44c04057a431e8428b17d36, type: 3}
+  m_PrefabInstance: {fileID: 1460766227}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f44b6f86a36274af2a808cd141c0c87f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
