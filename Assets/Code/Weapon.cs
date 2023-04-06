@@ -13,6 +13,7 @@ public class Weapon : MonoBehaviour
     public GameObject pistolScript;
     public GameObject smgScript;
     public GameObject shotgunScript;
+    public GameObject godGunScript;
 
     void Start()
     {
@@ -41,6 +42,11 @@ public class Weapon : MonoBehaviour
             currentWeapon = EquipShotgun();
             Debug.Log("shotgun equipped");
         }
+
+        if (Input.GetKeyDown(KeyCode.Alpha9)) {
+            currentWeapon = EquipGodGun();
+            Debug.Log("god gun equipped");
+        }
     }
 
     public void ChangeWeapon(GameObject newWeaponObject) {
@@ -57,5 +63,9 @@ public class Weapon : MonoBehaviour
 
     public IWeapon EquipShotgun() {
         return shotgunScript.GetComponent<IWeapon>();
+    }
+
+    public IWeapon EquipGodGun() {
+        return godGunScript.GetComponent<IWeapon>();
     }
 }

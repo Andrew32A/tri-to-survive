@@ -589,6 +589,55 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &283300966
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 283300967}
+  - component: {fileID: 283300968}
+  m_Layer: 0
+  m_Name: GodGun
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &283300967
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 283300966}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1940100758}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &283300968
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 283300966}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 188d35c15b7fc488e9b39df59272b5d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  firePoint: {fileID: 1650527816}
+  bulletPrefab: {fileID: 2997414979421653399, guid: 343a3aa59ad504e048dabd883848bd11, type: 3}
+  fireSquish: {fileID: 1806313368}
+  bulletSpread: 20
+  fireRate: 0
 --- !u!1 &357339634
 GameObject:
   m_ObjectHideFlags: 0
@@ -6733,6 +6782,7 @@ MonoBehaviour:
   pistolScript: {fileID: 1960098337}
   smgScript: {fileID: 1586810154}
   shotgunScript: {fileID: 741363340}
+  godGunScript: {fileID: 283300966}
 --- !u!1 &1714335985
 GameObject:
   m_ObjectHideFlags: 0
@@ -7212,6 +7262,7 @@ Transform:
   - {fileID: 1960098338}
   - {fileID: 1586810155}
   - {fileID: 741363341}
+  - {fileID: 283300967}
   m_Father: {fileID: 253324850}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
