@@ -13,12 +13,14 @@ public class Pistol : MonoBehaviour
 
     public void Shoot()
     {
-        if (canShoot)
-        {
-            Instantiate(pistolBulletPrefab, pistolFirePoint.position, pistolFirePoint.rotation);
-            pistolFireSquish.SetTrigger("Fire");
-            canShoot = false;
-            StartCoroutine(ResetShootDelay());
+        if (Input.GetButtonDown("Fire1")) {
+            if (canShoot)
+            {
+                Instantiate(pistolBulletPrefab, pistolFirePoint.position, pistolFirePoint.rotation);
+                pistolFireSquish.SetTrigger("Fire");
+                canShoot = false;
+                StartCoroutine(ResetShootDelay());
+            }
         }
     }
 
