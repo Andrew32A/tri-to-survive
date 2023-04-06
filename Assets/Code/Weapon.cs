@@ -4,20 +4,23 @@ using UnityEngine;
 
 public class Weapon : MonoBehaviour
 {
-    public Transform firePoint;
-    public GameObject bulletPrefab;
-    public Animator FireSquish;
+    public Pistol currentWeapon;
+    public GameObject pistolScript;
+
+    void Start()
+    {
+        currentWeapon = pistolScript.GetComponent<Pistol>();
+    }
 
     void Update()
     {
         // fire1 == mouse 0 (left click)
-        if (Input.GetButtonDown("Fire1")) {
-            Shoot();
-            FireSquish.SetTrigger("Fire");
+        if (Input.GetButton("Fire1")) {
+            currentWeapon.Shoot();
         }
     }
 
-    void Shoot() {
-        Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+    public void EquipPistol() {
+        currentWeapon = pistolScript.GetComponent<Pistol>();
     }
 }
