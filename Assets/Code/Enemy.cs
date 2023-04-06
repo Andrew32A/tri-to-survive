@@ -25,9 +25,7 @@ public class Enemy : MonoBehaviour
     public ParticleSystem enemyDeathExplosion;
     public ParticleSystem enemySpark;
     private float enemySparkDuration = 0.5f;
-
-    // TODO: add death explosion here and in Die method
-    // public GameObject deathEffect;
+    private bool isDead;
 
     void Start()
     {
@@ -84,12 +82,17 @@ public class Enemy : MonoBehaviour
 
         // check if enemy died
         if (currentHealth <= 0) {
-            Die();
+            // isDead prevents Die() from triggering multiple times when it by many bullets at once
+            if (isDead == false) {
+                Die();
+            }
+
+            isDead = true;
         }
     }
 
     void Die() {
-        // TODO: add death explosion
+        // death explosion
         ParticleSystem enemyDeathInstance = Instantiate(enemyDeathExplosion, transform.position, Quaternion.identity);
         enemyDeathInstance.Play();
         Destroy(enemyDeathInstance.gameObject, enemySparkDuration);
