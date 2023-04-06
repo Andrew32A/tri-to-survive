@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-// menu of functions that it's expecting the class to have
+// menu of functions that it's expecting the class to have, polymorphism
 public interface IWeapon {
     void Shoot();
 }
@@ -17,7 +17,7 @@ public class Weapon : MonoBehaviour
 
     void Start()
     {
-        currentWeapon = EquipSmg();
+        currentWeapon = EquipPistol();
     }
 
     void Update()
@@ -26,24 +26,16 @@ public class Weapon : MonoBehaviour
         if (Input.GetButton("Fire1")) {
             currentWeapon.Shoot();
             Debug.Log(currentWeapon);
-        }
-
-        if (Input.GetKeyDown(KeyCode.Alpha1)) {
+        } else if (Input.GetKeyDown(KeyCode.Alpha1)) {
             currentWeapon = EquipPistol();
             Debug.Log("pistol equipped");
-        }
-
-        if (Input.GetKeyDown(KeyCode.Alpha2)) {
+        } else if (Input.GetKeyDown(KeyCode.Alpha2)) {
             currentWeapon = EquipSmg();
             Debug.Log("smg equipped");
-        }
-
-        if (Input.GetKeyDown(KeyCode.Alpha3)) {
+        } else if (Input.GetKeyDown(KeyCode.Alpha3)) {
             currentWeapon = EquipShotgun();
             Debug.Log("shotgun equipped");
-        }
-
-        if (Input.GetKeyDown(KeyCode.Alpha9)) {
+        } else if (Input.GetKeyDown(KeyCode.Alpha9)) {
             currentWeapon = EquipGodGun();
             Debug.Log("god gun equipped");
         }

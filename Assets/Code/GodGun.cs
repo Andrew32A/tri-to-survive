@@ -8,9 +8,9 @@ public class GodGun : MonoBehaviour, IWeapon
     public GameObject bulletPrefab;
     public Animator fireSquish;
 
-    public float bulletSpread = 0.8f;
+    public float bulletSpread = 20f;
     private bool canShoot = true;
-    public float fireRate = 0.001f;
+    public float fireRate = 0f;
 
     public void Shoot()
     {
