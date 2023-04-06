@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Smg : MonoBehaviour
+public class Smg : MonoBehaviour, IWeapon
 {
     public Transform smgFirePoint;
     public GameObject smgBulletPrefab;

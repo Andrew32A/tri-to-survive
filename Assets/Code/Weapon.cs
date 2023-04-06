@@ -2,10 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public interface IWeapon {
+    void Shoot();
+}
+
 public class Weapon : MonoBehaviour
 {
-    public Smg currentWeapon;
-    // public GameObject pistolScript;
+    public IWeapon currentWeapon;
+    public GameObject pistolScript;
     public GameObject smgScript;
 
     void Start()
@@ -18,14 +22,31 @@ public class Weapon : MonoBehaviour
         // fire1 == mouse 0 (left click)
         if (Input.GetButton("Fire1")) {
             currentWeapon.Shoot();
+            Debug.Log(currentWeapon);
+        }
+
+        if (Input.GetKeyDown(KeyCode.Alpha1)) {
+            currentWeapon = EquipPistol();
+            Debug.Log("pistol equipped");
+        }
+
+        if (Input.GetKeyDown(KeyCode.Alpha2)) {
+            currentWeapon = EquipSmg();
+            Debug.Log("smg equipped");
         }
     }
 
-    // public Pistol EquipPistol() {
-    //     return pistolScript.GetComponent<Pistol>();
-    // }
-    
-    public Smg EquipSmg() {
-        return smgScript.GetComponent<Smg>();
+    public void ChangeWeapon(GameObject newWeaponObject) {
+        currentWeapon = newWeaponObject.GetComponent<IWeapon>();
     }
+
+
+    public IWeapon EquipPistol() {
+        return pistolScript.GetComponent<IWeapon>();
+    }
+
+    public IWeapon EquipSmg() {
+        return smgScript.GetComponent<IWeapon>();
+    }
+
 }

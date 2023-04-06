@@ -6543,6 +6543,8 @@ MonoBehaviour:
   smgFirePoint: {fileID: 1650527816}
   smgBulletPrefab: {fileID: 2997414979421653399, guid: 343a3aa59ad504e048dabd883848bd11, type: 3}
   smgFireSquish: {fileID: 1806313368}
+  bulletSpread: 40
+  fireRate: 0.08
 --- !u!1 &1650527815
 GameObject:
   m_ObjectHideFlags: 0
@@ -6678,7 +6680,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06d66ec6cca4c4428a6e79eac5c4caa2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentWeapon: {fileID: 1586810156}
+  pistolScript: {fileID: 1960098337}
   smgScript: {fileID: 1586810154}
 --- !u!1 &1714335985
 GameObject:
@@ -7292,6 +7294,7 @@ MonoBehaviour:
   pistolFirePoint: {fileID: 1650527816}
   pistolBulletPrefab: {fileID: 2997414979421653399, guid: 343a3aa59ad504e048dabd883848bd11, type: 3}
   pistolFireSquish: {fileID: 1806313368}
+  fireRate: 0.2
 --- !u!1001 &1996540447
 PrefabInstance:
   m_ObjectHideFlags: 0
