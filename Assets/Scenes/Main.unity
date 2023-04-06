@@ -513,7 +513,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 253324849}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.8715604, y: -0.6625874, z: 5.533466}
+  m_LocalPosition: {x: 0, y: 0, z: 5.533466}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1127,6 +1127,56 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1095.27, y: 36.306458}
   m_EdgeRadius: 0
+--- !u!1 &741363340
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 741363341}
+  - component: {fileID: 741363342}
+  m_Layer: 0
+  m_Name: Shotgun
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &741363341
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 741363340}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1940100758}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &741363342
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 741363340}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0586215ca214438493e43cdaed95c1d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shotgunFirePoint: {fileID: 1650527816}
+  shotgunBulletPrefab: {fileID: 2997414979421653399, guid: 343a3aa59ad504e048dabd883848bd11, type: 3}
+  shotgunFireSquish: {fileID: 1806313368}
+  bulletSpread: 40
+  pellets: 8
+  fireRate: 0.5
 --- !u!1 &804420078
 GameObject:
   m_ObjectHideFlags: 0
@@ -6682,6 +6732,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pistolScript: {fileID: 1960098337}
   smgScript: {fileID: 1586810154}
+  shotgunScript: {fileID: 741363340}
 --- !u!1 &1714335985
 GameObject:
   m_ObjectHideFlags: 0
@@ -7160,6 +7211,7 @@ Transform:
   m_Children:
   - {fileID: 1960098338}
   - {fileID: 1586810155}
+  - {fileID: 741363341}
   m_Father: {fileID: 253324850}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
