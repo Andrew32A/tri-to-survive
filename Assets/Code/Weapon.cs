@@ -4,12 +4,13 @@ using UnityEngine;
 
 public class Weapon : MonoBehaviour
 {
-    public Pistol currentWeapon;
-    public GameObject pistolScript;
+    public Smg currentWeapon;
+    // public GameObject pistolScript;
+    public GameObject smgScript;
 
     void Start()
     {
-        currentWeapon = pistolScript.GetComponent<Pistol>();
+        currentWeapon = EquipSmg();
     }
 
     void Update()
@@ -20,7 +21,11 @@ public class Weapon : MonoBehaviour
         }
     }
 
-    public void EquipPistol() {
-        currentWeapon = pistolScript.GetComponent<Pistol>();
+    // public Pistol EquipPistol() {
+    //     return pistolScript.GetComponent<Pistol>();
+    // }
+    
+    public Smg EquipSmg() {
+        return smgScript.GetComponent<Smg>();
     }
 }

@@ -8,8 +8,8 @@ public class Pistol : MonoBehaviour
     public GameObject pistolBulletPrefab;
     public Animator pistolFireSquish;
 
+    public float fireRate = 0.2f;
     private bool canShoot = true;
-    private float shootDelay = 0.2f;
 
     public void Shoot()
     {
@@ -26,7 +26,7 @@ public class Pistol : MonoBehaviour
 
     private IEnumerator ResetShootDelay()
     {
-        yield return new WaitForSeconds(shootDelay);
+        yield return new WaitForSeconds(fireRate);
         canShoot = true;
     }
 }
