@@ -52,7 +52,7 @@ public class Attractor : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            storeManager.addCurrency();
+            storeManager.addCurrency(1);
             Destroy(gameObject);
         }
     }

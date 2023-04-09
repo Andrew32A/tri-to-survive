@@ -20,8 +20,8 @@ public class StoreManager : MonoBehaviour
         
     }
 
-    public void addCurrency() {
-        playerCurrency += 1;
+    public void addCurrency(int currencyAmount) {
+        playerCurrency += currencyAmount;
         Debug.Log(playerCurrency);
 
         // temporarily change color to #FFFF00
