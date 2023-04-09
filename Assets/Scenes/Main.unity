@@ -248,7 +248,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 68711417}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -257,7 +257,7 @@ RectTransform:
   - {fileID: 1453169139}
   - {fileID: 1149277986}
   - {fileID: 357339635}
-  m_Father: {fileID: 1068313080}
+  m_Father: {fileID: 135864086}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -290,11 +290,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 126041001}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.02, y: -1.77, z: 0}
-  m_LocalScale: {x: 162.93788, y: 161.88298, z: 53.47222}
+  m_LocalPosition: {x: -1.0199999, y: -1.77, z: 0}
+  m_LocalScale: {x: 162.93787, y: 161.88298, z: 53.472218}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1068313080}
+  m_Father: {fileID: 135864086}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &126041003
@@ -349,6 +349,44 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &135864085
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 135864086}
+  m_Layer: 5
+  m_Name: Tiles
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &135864086
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 135864085}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 126041002}
+  - {fileID: 68711418}
+  m_Father: {fileID: 1068313080}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &205482635
 GameObject:
   m_ObjectHideFlags: 0
@@ -498,6 +536,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 253324850}
+  - component: {fileID: 253324851}
   m_Layer: 0
   m_Name: Store
   m_TagString: Untagged
@@ -522,6 +561,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &253324851
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 253324849}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e21bec915bc1f4f1991e1f7997976fcb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerCurrency: 0
 --- !u!1 &262238095
 GameObject:
   m_ObjectHideFlags: 0
@@ -1568,7 +1620,7 @@ GameObject:
   - component: {fileID: 1068313078}
   - component: {fileID: 1068313077}
   m_Layer: 5
-  m_Name: Tiles
+  m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1647,8 +1699,7 @@ RectTransform:
   m_LocalScale: {x: 0.018701298, y: 0.018701298, z: 0.018701298}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 126041002}
-  - {fileID: 68711418}
+  - {fileID: 135864086}
   - {fileID: 1996540448}
   m_Father: {fileID: 0}
   m_RootOrder: 8
@@ -7408,7 +7459,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6727946097608203880, guid: 92b943b4b44c04057a431e8428b17d36, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6727946097608203880, guid: 92b943b4b44c04057a431e8428b17d36, type: 3}
       propertyPath: m_LocalPosition.x

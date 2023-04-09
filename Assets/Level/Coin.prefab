@@ -157,6 +157,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attractionForce: 100
   maxDistance: 10
+  storeManager: {fileID: 0}
 --- !u!96 &5504336477317570461
 TrailRenderer:
   serializedVersion: 2

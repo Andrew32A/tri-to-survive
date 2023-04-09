@@ -4,12 +4,14 @@ using UnityEngine;
 
 public class Attractor : MonoBehaviour
 {
-   public float attractionForce = 5f;
+    public float attractionForce = 5f;
     public float maxDistance = 5f;
 
     private Transform player;
     private Rigidbody2D rb;
     private CircleCollider2D coinCollider;
+
+    public StoreManager storeManager;
 
     private void Start() {
         // get a reference to the player's transform
@@ -20,6 +22,9 @@ public class Attractor : MonoBehaviour
 
         // get a reference to the coin's circle collider
         coinCollider = GetComponent<CircleCollider2D>();
+
+        // get store so we can call addCurrency function
+        storeManager = FindObjectOfType<StoreManager>();
     }
 
     private void FixedUpdate() {
@@ -47,6 +52,7 @@ public class Attractor : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
+            storeManager.addCurrency();
             Destroy(gameObject);
         }
     }
