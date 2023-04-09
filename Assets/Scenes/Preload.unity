@@ -448,7 +448,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -675,7 +675,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f44b6f86a36274af2a808cd141c0c87f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  transition: {fileID: 1460766228}
+  transition: {fileID: 0}
   transitionTime: 0
 --- !u!1 &1149277985
 GameObject:
@@ -1133,11 +1133,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 92b943b4b44c04057a431e8428b17d36, type: 3}
---- !u!95 &1460766228 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 6727946097502863399, guid: 92b943b4b44c04057a431e8428b17d36, type: 3}
-  m_PrefabInstance: {fileID: 1460766227}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1460766229 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5554308340214524096, guid: 92b943b4b44c04057a431e8428b17d36, type: 3}
