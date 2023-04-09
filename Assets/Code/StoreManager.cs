@@ -23,6 +23,16 @@ public class StoreManager : MonoBehaviour
         playerCurrency += 1;
         Debug.Log(playerCurrency);
 
-        currencyText.text = playerCurrency.ToString();
+        // temporarily change color to #FFFF00
+        currencyText.color = new Color(1f, 1f, 0f, 1f);
+        StartCoroutine(ResetTextColor());
+
+        // update currency text
+        currencyText.text = "$" + playerCurrency.ToString();
+    }
+
+    private IEnumerator ResetTextColor() {
+        yield return new WaitForSeconds(0.5f); // wait for 0.5 seconds
+        currencyText.color = new Color(1f, 1f, 1f, 1f); // reset to original color
     }
 }
