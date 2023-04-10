@@ -155,7 +155,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02810ae5a501d42269327bbe77e4c782, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attractionForce: 100
+  attractionForce: 150
   maxDistance: 10
   storeManager: {fileID: 0}
 --- !u!96 &5504336477317570461

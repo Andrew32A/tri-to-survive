@@ -30,6 +30,11 @@ public class Player : MonoBehaviour
         movement.x = Input.GetAxis("Horizontal");
         movement.y = Input.GetAxis("Vertical");
 
+        // normalize vector so player doesn't move faster than intended diagonally
+        if (movement.magnitude > 1f) { 
+            movement.Normalize();
+        }
+
         mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
 
         // trigger bullet time
