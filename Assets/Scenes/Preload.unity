@@ -798,7 +798,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Enable full screen for optimal experience
+  m_text: Developed by Andrew Alsing
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 692ffa7a3e4784108bc8c42de60dc2dc, type: 2}
   m_sharedMaterial: {fileID: -7204555203995353058, guid: 692ffa7a3e4784108bc8c42de60dc2dc, type: 2}
