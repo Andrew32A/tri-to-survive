@@ -1864,7 +1864,7 @@ GameObject:
   - component: {fileID: 1247898765}
   - component: {fileID: 1247898764}
   m_Layer: 5
-  m_Name: TimerNumbers
+  m_Name: TimerText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2031,6 +2031,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1317899228}
   - component: {fileID: 1317899229}
+  - component: {fileID: 1317899230}
   m_Layer: 5
   m_Name: TimerBar
   m_TagString: Untagged
@@ -2109,10 +2110,27 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0.097
+  m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &1317899230
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1317899227}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57a5deda4c8f94e92a2c9ff79c339d3d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxTime: 31
+  currentTime: 0
+  slider: {fileID: 1317899229}
+  fill: {fileID: 1609741337}
+  timerText: {fileID: 1247898764}
 --- !u!1 &1377652660
 GameObject:
   m_ObjectHideFlags: 0

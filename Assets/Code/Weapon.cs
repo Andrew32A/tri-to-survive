@@ -25,7 +25,6 @@ public class Weapon : MonoBehaviour
         // fire1 == mouse 0 (left click)
         if (Input.GetButton("Fire1")) {
             currentWeapon.Shoot();
-            Debug.Log(currentWeapon);
         } else if (Input.GetKeyDown(KeyCode.Alpha1)) {
             currentWeapon = EquipPistol();
             Debug.Log("pistol equipped");
