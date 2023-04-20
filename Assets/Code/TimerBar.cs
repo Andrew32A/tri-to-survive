@@ -6,8 +6,9 @@ using TMPro;
 
 public class TimerBar : MonoBehaviour
 {
-    public int maxTime = 31;
-    public int currentTime;
+    public float maxTime = 30;
+    public float currentTime;
+    public bool timerStart = false;
 
     public Slider slider;
     public Image fill;
@@ -16,30 +17,35 @@ public class TimerBar : MonoBehaviour
     void Start()
     {
         currentTime = maxTime;
-        slider.maxValue = 31;
+        slider.maxValue = 30;
         slider.value = slider.maxValue;
+        timerStart = true;
     }
 
     void Update()
     {
-        if (currentTime <= 5) {
-            timerText.color = Color.red;
-        } 
-        
-        if (currentTime <= 0) {
-            currentTime = 0;
+        if (timerStart == true) {
+            if (currentTime <= 5) {
+                timerText.color = Color.red;
+            } 
+            
+            if (currentTime <= 0) {
+                timerStart = false;
+                currentTime = 0;
 
-            // TODO: open shop after time hits 0
-            openShop();
-        } else if (currentTime > 0) {
-            countDown();
-        } 
+                // TODO: open shop after time hits 0
+                openShop();
+
+            } else if (currentTime > 0) {
+                countDown();
+            } 
+        }
     }
 
     private void countDown() {
-        currentTime = (int)(maxTime - Time.time);
+        currentTime = (currentTime - Time.deltaTime);
         slider.value = currentTime;
-        timerText.text = currentTime.ToString();
+        timerText.text = Mathf.Ceil(currentTime).ToString();
     }
 
     private void openShop() {

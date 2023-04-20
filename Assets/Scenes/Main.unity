@@ -2203,8 +2203,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57a5deda4c8f94e92a2c9ff79c339d3d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxTime: 31
+  maxTime: 30
   currentTime: 0
+  timerStart: 0
   slider: {fileID: 1317899229}
   fill: {fileID: 1609741337}
   timerText: {fileID: 1247898764}
