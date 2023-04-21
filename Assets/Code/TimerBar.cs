@@ -14,6 +14,8 @@ public class TimerBar : MonoBehaviour
     public Image fill;
     public TextMeshProUGUI timerText;
 
+    public GameObject enemySpawner;
+
     void Start()
     {
         currentTime = maxTime;
@@ -49,6 +51,15 @@ public class TimerBar : MonoBehaviour
     }
 
     private void openShop() {
+        // disable enemy spawner
+        enemySpawner.SetActive(false);
+
+        // remove enemies
+        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
+        foreach (var enemy in enemies) {
+            Destroy(enemy);
+        }
+
         Debug.Log("shop has opened!");
     }
 }

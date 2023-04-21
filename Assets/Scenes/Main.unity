@@ -2209,6 +2209,7 @@ MonoBehaviour:
   slider: {fileID: 1317899229}
   fill: {fileID: 1609741337}
   timerText: {fileID: 1247898764}
+  enemySpawner: {fileID: 628490532}
 --- !u!1 &1377652660
 GameObject:
   m_ObjectHideFlags: 0
