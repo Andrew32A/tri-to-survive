@@ -84,18 +84,22 @@ public class TimerBar : MonoBehaviour
         // disable player
         player.SetActive(false);
 
+        // reset text to blank once done
+        waveCompleteText.text = "";
+
         // enable store menu
         storeMenu.SetActive(true);
+
     }
 
     private IEnumerator waveCompleteMessage() {
         string message = "Wave Complete";
         float typingSpeed = 0.1f; // controls how fast the text is typed out
 
+        // display message by 'typing' it out
         for (int i = 0; i <= message.Length; i++) {
             waveCompleteText.text = message.Substring(0, i);
             yield return new WaitForSeconds(typingSpeed);
         }
     }
-
 }
