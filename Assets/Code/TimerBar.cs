@@ -28,6 +28,15 @@ public class TimerBar : MonoBehaviour
         timerStart = true;
     }
 
+    public void RestartTimer()
+    {
+        currentTime = maxTime;
+        slider.maxValue = 30;
+        slider.value = slider.maxValue;
+        timerText.color = Color.white;
+        timerStart = true;
+    }
+
     void Update()
     {
         if (timerStart == true) {
