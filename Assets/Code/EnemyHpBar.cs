@@ -10,9 +10,7 @@ public class EnemyHpBar : MonoBehaviour
     public GameObject low;
     public GameObject critical;
 
-    public void UpdateHpBar(int hp) {
-        // TODO: add an explosion animation with unity's particle system and screenshake
-        
+    public void UpdateHpBar(int hp) {        
         if (hp <= 20) {
             Destroy(critical);
         } else if (hp <= 40) {

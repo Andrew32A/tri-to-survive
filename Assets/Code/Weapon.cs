@@ -52,9 +52,9 @@ public class Weapon : MonoBehaviour
         }
     }
 
-    public void ChangeWeapon(GameObject newWeaponObject) {
-        currentWeapon = newWeaponObject.GetComponent<IWeapon>();
-    }
+    // public void ChangeWeapon(GameObject newWeaponObject) {
+    //     currentWeapon = newWeaponObject.GetComponent<IWeapon>();
+    // }
 
     public IWeapon EquipPistol() {
         return pistolScript.GetComponent<IWeapon>();
