@@ -18,15 +18,13 @@ public class Player : MonoBehaviour
 
     public TimeManager timeManager;
 
-    void Start()
-    {
+    void Start() {
         currentHealth = maxHealth;
         cam = Camera.main;
         rb = GetComponent<Rigidbody2D>();
     }
 
-    void Update()
-    {
+    void Update() {
         movement.x = Input.GetAxis("Horizontal");
         movement.y = Input.GetAxis("Vertical");
 

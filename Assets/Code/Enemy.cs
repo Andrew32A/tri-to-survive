@@ -27,8 +27,7 @@ public class Enemy : MonoBehaviour
     private float enemySparkDuration = 0.5f;
     private bool isDead;
 
-    void Start()
-    {
+    void Start() {
         currentHealth = maxHealth;
         player = GameObject.FindGameObjectWithTag("Player").transform;
 
@@ -39,8 +38,7 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    void Update()
-    {
+    void Update() {
         if (player != null) {
             // look at player
             Vector3 direction = player.position - transform.position;

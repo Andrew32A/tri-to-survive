@@ -8,13 +8,11 @@ public class SpawnWarning : MonoBehaviour
     private float timeSinceLastBlink = 0f;
     private UnityEngine.Rendering.Universal.Light2D warningLight;
 
-    void Start()
-    {
+    void Start() {
         warningLight = GetComponentInChildren<UnityEngine.Rendering.Universal.Light2D>();
     }
 
-    void Update()
-    {
+    void Update() {
         timeSinceLastBlink += Time.deltaTime;
         if (timeSinceLastBlink >= blinkInterval) {
             timeSinceLastBlink = 0f;

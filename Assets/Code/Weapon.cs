@@ -17,8 +17,7 @@ public class Weapon : MonoBehaviour
 
     public bool canInput;
 
-    void Start()
-    {
+    void Start() {
         // set pistol as default weapon
         currentWeapon = EquipPistol();
 
@@ -26,8 +25,7 @@ public class Weapon : MonoBehaviour
         canInput = true;
     }
 
-    void Update()
-    {
+    void Update() {
         if (canInput == true) {
             PlayerInput();
         }

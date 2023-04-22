@@ -11,8 +11,7 @@ public class Pistol : MonoBehaviour, IWeapon
     public float fireRate = 0.2f;
     private bool canShoot = true;
 
-    public void Shoot()
-    {
+    public void Shoot() {
         if (Input.GetButtonDown("Fire1")) {
             if (canShoot)
             {
@@ -24,8 +23,7 @@ public class Pistol : MonoBehaviour, IWeapon
         }
     }
 
-    private IEnumerator ResetShootDelay()
-    {
+    private IEnumerator ResetShootDelay() {
         yield return new WaitForSeconds(fireRate);
         canShoot = true;
     }

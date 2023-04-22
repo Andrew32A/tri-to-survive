@@ -20,16 +20,14 @@ public class TimerBar : MonoBehaviour
     public GameObject storeMenu;
     public GameObject player;
 
-    void Start()
-    {
+    void Start() {
         currentTime = maxTime;
         slider.maxValue = 30;
         slider.value = slider.maxValue;
         timerStart = true;
     }
 
-    public void RestartTimer()
-    {
+    public void RestartTimer() {
         currentTime = maxTime;
         slider.maxValue = 30;
         slider.value = slider.maxValue;
@@ -37,8 +35,7 @@ public class TimerBar : MonoBehaviour
         timerStart = true;
     }
 
-    void Update()
-    {
+    void Update() {
         if (timerStart == true) {
             // turn timer text to red when at 5 or below
             if (currentTime <= 5) {

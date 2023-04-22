@@ -13,8 +13,7 @@ public class Shotgun : MonoBehaviour, IWeapon
     private bool canShoot = true;
     public float fireRate = 0.5f;
 
-    public void Shoot()
-    {
+    public void Shoot() {
         if (canShoot)
         {
             for (int i = 0; i < pellets; i++)
@@ -29,8 +28,7 @@ public class Shotgun : MonoBehaviour, IWeapon
         }
     }
 
-    private IEnumerator ResetShootDelay()
-    {
+    private IEnumerator ResetShootDelay() {
         yield return new WaitForSeconds(fireRate);
         canShoot = true;
     }

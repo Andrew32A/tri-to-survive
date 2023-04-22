@@ -8,8 +8,7 @@ public class EnemyBullet : MonoBehaviour
     public int damage = 25;
     public Rigidbody2D rb;
 
-    void Start()
-    {
+    void Start() {
         rb.velocity = transform.up * speed;
     }
 

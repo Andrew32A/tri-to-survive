@@ -10,14 +10,12 @@ public class CrosshairCursor : MonoBehaviour
     public float resetTime = 0.2f;
     private Vector3 originalScale;
 
-    void Start()
-    {
+    void Start() {
         Cursor.visible = false;
         originalScale = transform.localScale;
     }
 
-    void Update()
-    {
+    void Update() {
         // track mouse position
         Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         transform.position = mousePos;
@@ -39,8 +37,7 @@ public class CrosshairCursor : MonoBehaviour
         }
     }
 
-    private IEnumerator ResetScale()
-    {
+    private IEnumerator ResetScale() {
         yield return new WaitForSeconds(resetTime);
         transform.localScale = originalScale;
     }

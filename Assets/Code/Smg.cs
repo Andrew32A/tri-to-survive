@@ -12,8 +12,7 @@ public class Smg : MonoBehaviour, IWeapon
     private bool canShoot = true;
     public float fireRate = 0.08f;
 
-    public void Shoot()
-    {
+    public void Shoot() {
         if (canShoot)
         {
             float randomSpread = Random.Range(-bulletSpread / 2f, bulletSpread / 2f);
@@ -25,8 +24,7 @@ public class Smg : MonoBehaviour, IWeapon
         }
     }
 
-    private IEnumerator ResetShootDelay()
-    {
+    private IEnumerator ResetShootDelay() {
         yield return new WaitForSeconds(fireRate);
         canShoot = true;
     }

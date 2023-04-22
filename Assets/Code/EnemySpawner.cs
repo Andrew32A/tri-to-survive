@@ -23,15 +23,13 @@ public class EnemySpawner : MonoBehaviour
     }
 
     // triggered when store is closed, might need to modify later
-    public void StartNextWave()
-    {
+    public void StartNextWave() {
         nextWave();
         StartCoroutine(SpawnEnemyWithWarning(chaserInterval, ChaserEnemyPrefab));
         StartCoroutine(SpawnEnemyWithWarning(gunnerInterval, GunnerEnemyPrefab));
     }
     
-    private IEnumerator SpawnEnemyWithWarning(float interval, GameObject enemy)
-    {
+    private IEnumerator SpawnEnemyWithWarning(float interval, GameObject enemy) {
         // wait for enemy interval
         yield return new WaitForSeconds(interval);
 
