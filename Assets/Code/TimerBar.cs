@@ -89,7 +89,6 @@ public class TimerBar : MonoBehaviour
 
         // enable store menu
         storeMenu.SetActive(true);
-
     }
 
     private IEnumerator waveCompleteMessage() {
