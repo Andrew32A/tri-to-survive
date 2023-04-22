@@ -37,7 +37,7 @@ public class TimerBar : MonoBehaviour
             if (currentTime <= 0) {
                 timerStart = false;
                 currentTime = 0;
-                openShop();
+                StartCoroutine(openShop());
 
             } else if (currentTime > 0) {
                 countDown();
@@ -56,7 +56,7 @@ public class TimerBar : MonoBehaviour
         timerText.text = Mathf.Ceil(currentTime).ToString();
     }
 
-    private void openShop() {
+    private IEnumerator openShop() {
         // disable player input
         player.GetComponent<Weapon>().canInput = false;
 
@@ -72,6 +72,12 @@ public class TimerBar : MonoBehaviour
         foreach (var enemy in enemies) {
             Destroy(enemy);
         }
+
+        // wait for 2 seconds
+        yield return new WaitForSeconds(2f);
+
+        // disable player
+        player.SetActive(false);
 
         // enable store menu
         storeMenu.SetActive(true);
