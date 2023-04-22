@@ -1576,7 +1576,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &628490534
 MonoBehaviour:
@@ -1593,6 +1593,8 @@ MonoBehaviour:
   ChaserEnemyPrefab: {fileID: 1423473832115240665, guid: 0b8a2f0edc4414fdb88d9659347dc042, type: 3}
   GunnerEnemyPrefab: {fileID: 5124700626808521669, guid: 4b8f71de26c564213a096ff66b5d9300, type: 3}
   warningPrefab: {fileID: 1350007787862990361, guid: d4fd1a88651a4486ca35492015deef47, type: 3}
+  currentWave: 0
+  waveText: {fileID: 2080941455}
   chaserInterval: 3
   gunnerInterval: 10
 --- !u!1 &629064078
@@ -7849,37 +7851,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1609741335}
   m_CullTransparentMesh: 1
---- !u!1 &1633996506
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1633996507}
-  m_Layer: 0
-  m_Name: WaveManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1633996507
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1633996506}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.8609905, y: 0.27840003, z: -0.2775546}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 8
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1650527815
 GameObject:
   m_ObjectHideFlags: 0
@@ -8843,7 +8814,7 @@ GameObject:
   - component: {fileID: 2080941456}
   - component: {fileID: 2080941455}
   m_Layer: 5
-  m_Name: WaveCounter
+  m_Name: WaveText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
