@@ -15,6 +15,8 @@ public class TimerBar : MonoBehaviour
     public TextMeshProUGUI timerText;
 
     public GameObject enemySpawner;
+    public GameObject storeMenu;
+    public GameObject player;
 
     void Start()
     {
@@ -27,6 +29,7 @@ public class TimerBar : MonoBehaviour
     void Update()
     {
         if (timerStart == true) {
+            // turn timer text to red when at 5 or below
             if (currentTime <= 5) {
                 timerText.color = Color.red;
             } 
@@ -34,8 +37,6 @@ public class TimerBar : MonoBehaviour
             if (currentTime <= 0) {
                 timerStart = false;
                 currentTime = 0;
-
-                // TODO: open shop after time hits 0
                 openShop();
 
             } else if (currentTime > 0) {
@@ -45,12 +46,24 @@ public class TimerBar : MonoBehaviour
     }
 
     private void countDown() {
+        // decrease timer by delta time float
         currentTime = (currentTime - Time.deltaTime);
+
+        // update slider
         slider.value = currentTime;
+
+        // round timer count up
         timerText.text = Mathf.Ceil(currentTime).ToString();
     }
 
     private void openShop() {
+        // disable player input
+        player.GetComponent<Weapon>().canInput = false;
+
+        // disable player movement and stop velocity
+        player.GetComponent<Player>().moveSpeed = 0f;
+        player.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
+
         // disable enemy spawner
         enemySpawner.SetActive(false);
 
@@ -59,6 +72,9 @@ public class TimerBar : MonoBehaviour
         foreach (var enemy in enemies) {
             Destroy(enemy);
         }
+
+        // enable store menu
+        storeMenu.SetActive(true);
 
         Debug.Log("shop has opened!");
     }

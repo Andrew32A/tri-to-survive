@@ -7,7 +7,7 @@ public class Player : MonoBehaviour
     public int maxHealth = 75;
     private int currentHealth;
     public PlayerHpBar HpBar;
-    public float moveSpeed = 8.5f;
+    public float moveSpeed = 12f;
     public int rotationOffset = 90;
 
     private Vector2 movement;

@@ -15,13 +15,25 @@ public class Weapon : MonoBehaviour
     public GameObject shotgunScript;
     public GameObject godGunScript;
 
+    public bool canInput;
+
     void Start()
     {
+        // set pistol as default weapon
         currentWeapon = EquipPistol();
+
+        // enable shooting
+        canInput = true;
     }
 
     void Update()
     {
+        if (canInput == true) {
+            PlayerInput();
+        }
+    }
+
+    public void PlayerInput() {
         // fire1 == mouse 0 (left click)
         if (Input.GetButton("Fire1")) {
             currentWeapon.Shoot();
