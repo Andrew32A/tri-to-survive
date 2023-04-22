@@ -13,6 +13,8 @@ public class TimerBar : MonoBehaviour
     public Slider slider;
     public Image fill;
     public TextMeshProUGUI timerText;
+    public TextMeshProUGUI waveCompleteText;
+
 
     public GameObject enemySpawner;
     public GameObject storeMenu;
@@ -57,6 +59,9 @@ public class TimerBar : MonoBehaviour
     }
 
     private IEnumerator openShop() {
+        // display wave complete message
+        StartCoroutine(waveCompleteMessage());
+
         // disable player input
         player.GetComponent<Weapon>().canInput = false;
 
@@ -81,7 +86,16 @@ public class TimerBar : MonoBehaviour
 
         // enable store menu
         storeMenu.SetActive(true);
-
-        Debug.Log("shop has opened!");
     }
+
+    private IEnumerator waveCompleteMessage() {
+        string message = "Wave Complete";
+        float typingSpeed = 0.1f; // controls how fast the text is typed out
+
+        for (int i = 0; i <= message.Length; i++) {
+            waveCompleteText.text = message.Substring(0, i);
+            yield return new WaitForSeconds(typingSpeed);
+        }
+    }
+
 }
