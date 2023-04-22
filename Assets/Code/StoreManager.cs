@@ -15,16 +15,6 @@ public class StoreManager : MonoBehaviour
     public GameObject player;
     public GameObject timer;
 
-    void Start()
-    {
-        
-    }
-
-    void Update()
-    {
-        
-    }
-
     public void addCurrency(int currencyAmount) {
         playerCurrency += currencyAmount;
         Debug.Log(playerCurrency);
