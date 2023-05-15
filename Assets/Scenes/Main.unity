@@ -792,6 +792,7 @@ MonoBehaviour:
   storeMenu: {fileID: 1899286089}
   player: {fileID: 1689420083}
   timer: {fileID: 1317899227}
+  playerUI: {fileID: 1377652660}
 --- !u!1 &254593612
 GameObject:
   m_ObjectHideFlags: 0
@@ -2625,6 +2626,7 @@ MonoBehaviour:
   enemySpawner: {fileID: 628490532}
   storeMenu: {fileID: 1899286089}
   player: {fileID: 1689420083}
+  playerUI: {fileID: 1377652660}
 --- !u!1 &1377652660
 GameObject:
   m_ObjectHideFlags: 0

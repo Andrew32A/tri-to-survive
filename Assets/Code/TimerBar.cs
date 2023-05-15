@@ -19,6 +19,7 @@ public class TimerBar : MonoBehaviour
     public GameObject enemySpawner;
     public GameObject storeMenu;
     public GameObject player;
+    public GameObject playerUI;
 
     void Start() {
         currentTime = maxTime;
@@ -95,6 +96,9 @@ public class TimerBar : MonoBehaviour
 
         // enable store menu
         storeMenu.SetActive(true);
+
+        // disable player UI (NOTE: includes timer bar and this script)
+        playerUI.SetActive(false);
     }
 
     private IEnumerator waveCompleteMessage() {

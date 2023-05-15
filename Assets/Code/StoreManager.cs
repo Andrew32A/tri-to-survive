@@ -14,6 +14,7 @@ public class StoreManager : MonoBehaviour
     public GameObject storeMenu;
     public GameObject player;
     public GameObject timer;
+    public GameObject playerUI;
 
     public void addCurrency(int currencyAmount) {
         playerCurrency += currencyAmount;
@@ -55,5 +56,8 @@ public class StoreManager : MonoBehaviour
 
         // disable store menu
         storeMenu.SetActive(false);
+
+        // enables player UI
+        playerUI.SetActive(true);
     }
 }
