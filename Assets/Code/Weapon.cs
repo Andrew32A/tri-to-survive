@@ -68,22 +68,27 @@ public class Weapon : MonoBehaviour
 
     public void buyItem(int itemCost) {
         if (checkIfPlayerCanAfford(itemCost)) {
+            // update player currency
             storeManager.playerCurrency -= itemCost;
             storeManager.updateCurrencyText();
 
+            // check to see what player bought and equip it
             if (itemCost == pistolPrice) {
-                EquipPistol();
+                currentWeapon = EquipPistol();
             } else if (itemCost == smgPrice) {
-                EquipSmg();
+                currentWeapon = EquipSmg();
             } else if (itemCost == shotgunPrice) {
-                EquipShotgun();
+                currentWeapon = EquipShotgun();
             } else if (itemCost == godGunPrice) {
-                EquipGodGun();
+                currentWeapon = EquipGodGun();
             } else {
                 Debug.LogError("Invalid item cost.");
             }
+
+            Debug.Log("player spent: " + itemCost);
         } else {
             // code to handle if the player can't afford the item
+            Debug.Log("player doesn't have enough money, tried to buy: " + itemCost);
         }
     }
 

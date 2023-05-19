@@ -2173,14 +2173,14 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 253324851}
-        m_TargetAssemblyTypeName: StoreManager, Assembly-CSharp
-        m_MethodName: exitStore
-        m_Mode: 1
+      - m_Target: {fileID: 1689420090}
+        m_TargetAssemblyTypeName: Weapon, Assembly-CSharp
+        m_MethodName: buyItem
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 20
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 1
@@ -2987,14 +2987,14 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 253324851}
-        m_TargetAssemblyTypeName: StoreManager, Assembly-CSharp
-        m_MethodName: exitStore
-        m_Mode: 1
+      - m_Target: {fileID: 1689420090}
+        m_TargetAssemblyTypeName: Weapon, Assembly-CSharp
+        m_MethodName: buyItem
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 250
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 1
@@ -3469,7 +3469,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57a5deda4c8f94e92a2c9ff79c339d3d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxTime: 10
+  maxTime: 30
   currentTime: 0
   timerStart: 0
   slider: {fileID: 1317899229}
@@ -8800,14 +8800,14 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 253324851}
-        m_TargetAssemblyTypeName: StoreManager, Assembly-CSharp
-        m_MethodName: exitStore
-        m_Mode: 1
+      - m_Target: {fileID: 1689420090}
+        m_TargetAssemblyTypeName: Weapon, Assembly-CSharp
+        m_MethodName: buyItem
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 100
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 1
@@ -8934,14 +8934,14 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 253324851}
-        m_TargetAssemblyTypeName: StoreManager, Assembly-CSharp
-        m_MethodName: exitStore
-        m_Mode: 1
+      - m_Target: {fileID: 1689420090}
+        m_TargetAssemblyTypeName: Weapon, Assembly-CSharp
+        m_MethodName: buyItem
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 1000
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 1
@@ -9249,6 +9249,7 @@ MonoBehaviour:
   shotgunScript: {fileID: 741363340}
   godGunScript: {fileID: 283300966}
   canInput: 0
+  storeManager: {fileID: 253324851}
 --- !u!1 &1714335985
 GameObject:
   m_ObjectHideFlags: 0
