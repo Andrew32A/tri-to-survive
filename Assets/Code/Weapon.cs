@@ -16,6 +16,14 @@ public class Weapon : MonoBehaviour
     public GameObject godGunScript;
 
     public bool canInput;
+    
+    // public StoreManager storeManager;
+
+    // weapon prices
+    private int pistolPrice = 20;
+    private int smgPrice = 100;
+    private int shotgunPrice = 250;
+    private int godGunPrice = 1000;
 
     void Start() {
         // set pistol as default weapon
@@ -52,6 +60,19 @@ public class Weapon : MonoBehaviour
 
     // public void ChangeWeapon(GameObject newWeaponObject) {
     //     currentWeapon = newWeaponObject.GetComponent<IWeapon>();
+    // }
+
+    // public bool checkIfPlayerCanAfford() {
+    //     return playerCoins >= weaponCost;
+    // }
+
+    // public void buyWeapon(int weaponCost) {
+    //     if (checkIfPlayerCanAfford(weaponCost)) {
+    //         playerCoins -= weaponCost;
+    //         // code to equip the weapon goes here
+    //     } else {
+    //         // code to handle if the player can't afford the weapon
+    //     }
     // }
 
     public IWeapon EquipPistol() {

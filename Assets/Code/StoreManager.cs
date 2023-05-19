@@ -8,6 +8,7 @@ public class StoreManager : MonoBehaviour
     public int playerCurrency = 0;
 
     public TextMeshProUGUI currencyText;
+    public TextMeshProUGUI storeCurrencyText;
     public Animator currencySquish;
 
     public GameObject enemySpawner;
@@ -15,6 +16,11 @@ public class StoreManager : MonoBehaviour
     public GameObject player;
     public GameObject timer;
     public GameObject playerUI;
+
+    public void updateCurrencyText() {
+        currencyText.text = "$" + playerCurrency.ToString();
+        storeCurrencyText.text = "$" + playerCurrency.ToString();
+    }
 
     public void addCurrency(int currencyAmount) {
         playerCurrency += currencyAmount;
@@ -27,8 +33,7 @@ public class StoreManager : MonoBehaviour
         // play animation
         currencySquish.SetTrigger("CurrencySquish");
 
-        // update currency text
-        currencyText.text = "$" + playerCurrency.ToString();
+        updateCurrencyText();
     }
 
     private IEnumerator ResetTextColor() {
