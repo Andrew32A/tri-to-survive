@@ -17,7 +17,7 @@ public class Weapon : MonoBehaviour
 
     public bool canInput;
     
-    // public StoreManager storeManager;
+    public StoreManager storeManager;
 
     // weapon prices
     private int pistolPrice = 20;
@@ -62,18 +62,30 @@ public class Weapon : MonoBehaviour
     //     currentWeapon = newWeaponObject.GetComponent<IWeapon>();
     // }
 
-    // public bool checkIfPlayerCanAfford() {
-    //     return playerCoins >= weaponCost;
-    // }
+    public bool checkIfPlayerCanAfford(int itemCost) {
+        return storeManager.playerCurrency >= itemCost;
+    }
 
-    // public void buyWeapon(int weaponCost) {
-    //     if (checkIfPlayerCanAfford(weaponCost)) {
-    //         playerCoins -= weaponCost;
-    //         // code to equip the weapon goes here
-    //     } else {
-    //         // code to handle if the player can't afford the weapon
-    //     }
-    // }
+    public void buyItem(int itemCost) {
+        if (checkIfPlayerCanAfford(itemCost)) {
+            storeManager.playerCurrency -= itemCost;
+            storeManager.updateCurrencyText();
+
+            if (itemCost == pistolPrice) {
+                EquipPistol();
+            } else if (itemCost == smgPrice) {
+                EquipSmg();
+            } else if (itemCost == shotgunPrice) {
+                EquipShotgun();
+            } else if (itemCost == godGunPrice) {
+                EquipGodGun();
+            } else {
+                Debug.LogError("Invalid item cost.");
+            }
+        } else {
+            // code to handle if the player can't afford the item
+        }
+    }
 
     public IWeapon EquipPistol() {
         return pistolScript.GetComponent<IWeapon>();
