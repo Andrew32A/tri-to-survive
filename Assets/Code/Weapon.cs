@@ -10,17 +10,15 @@ public interface IWeapon {
 public class Weapon : MonoBehaviour
 {
     private bool devMode = false;
+    public bool canInput;
 
     public IWeapon currentWeapon;
     public GameObject pistolScript;
     public GameObject smgScript;
     public GameObject shotgunScript;
     public GameObject godGunScript;
-
-    public bool canInput;
-    
     public StoreManager storeManager;
-
+    
     // weapon prices
     private int pistolPrice = 20;
     private int smgPrice = 100;
@@ -74,10 +72,6 @@ public class Weapon : MonoBehaviour
         }
     }
 
-    // public void ChangeWeapon(GameObject newWeaponObject) {
-    //     currentWeapon = newWeaponObject.GetComponent<IWeapon>();
-    // }
-
     public bool checkIfPlayerCanAfford(int itemCost) {
         return storeManager.playerCurrency >= itemCost;
     }
@@ -104,7 +98,7 @@ public class Weapon : MonoBehaviour
             Debug.Log("player spent: " + itemCost);
 
         } else {
-            // code to handle if the player can't afford the item
+            // TODO: code to handle if the player can't afford the item
             Debug.Log("player doesn't have enough money, tried to buy: " + itemCost);
         }
     }
