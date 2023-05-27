@@ -25,6 +25,12 @@ public class Weapon : MonoBehaviour
     private int shotgunPrice = 250;
     private int godGunPrice = 1000;
 
+    // is weapon unlocked
+    private bool isPistolUnlocked = true;
+    private bool isSmgUnlocked = false;
+    private bool isShotgunUnlocked = false;
+    private bool isGodGunUnlocked = false;
+
     void Start() {
         // set pistol as default weapon
         currentWeapon = EquipPistol();
@@ -78,21 +84,37 @@ public class Weapon : MonoBehaviour
 
     public void buyItem(int itemCost) {
         if (checkIfPlayerCanAfford(itemCost)) {
-            // update player currency
-            storeManager.playerCurrency -= itemCost;
-            storeManager.updateCurrencyText();
-
             // check to see what player bought and equip it
-            if (itemCost == pistolPrice) {
+            if (itemCost == pistolPrice && !isPistolUnlocked) {
+                isPistolUnlocked = true;
                 currentWeapon = EquipPistol();
-            } else if (itemCost == smgPrice) {
+
+                // update player currency
+                storeManager.playerCurrency -= itemCost;
+                storeManager.updateCurrencyText();
+            } else if (itemCost == smgPrice && !isSmgUnlocked) {
+                isSmgUnlocked = true;
                 currentWeapon = EquipSmg();
-            } else if (itemCost == shotgunPrice) {
+
+                // update player currency
+                storeManager.playerCurrency -= itemCost;
+                storeManager.updateCurrencyText();
+            } else if (itemCost == shotgunPrice && !isShotgunUnlocked) {
+                isShotgunUnlocked = true;
                 currentWeapon = EquipShotgun();
-            } else if (itemCost == godGunPrice) {
+
+                // update player currency
+                storeManager.playerCurrency -= itemCost;
+                storeManager.updateCurrencyText();
+            } else if (itemCost == godGunPrice && !isGodGunUnlocked) {
+                isGodGunUnlocked = true;
                 currentWeapon = EquipGodGun();
+
+                // update player currency
+                storeManager.playerCurrency -= itemCost;
+                storeManager.updateCurrencyText();
             } else {
-                Debug.LogError("Invalid item cost.");
+                Debug.LogError("Invalid item cost or gun is already unlocked.");
             }
 
             Debug.Log("player spent: " + itemCost);
