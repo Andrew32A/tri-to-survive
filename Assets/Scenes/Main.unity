@@ -3933,7 +3933,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57a5deda4c8f94e92a2c9ff79c339d3d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxTime: 30
+  maxTime: 5
   currentTime: 0
   timerStart: 0
   slider: {fileID: 1317899229}
@@ -10451,7 +10451,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1899286090
 RectTransform:
   m_ObjectHideFlags: 0

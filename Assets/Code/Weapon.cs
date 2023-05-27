@@ -89,7 +89,7 @@ public class Weapon : MonoBehaviour
 
     public void buyItem(int itemCost) {
         if (checkIfPlayerCanAfford(itemCost)) {
-            // check to see what player bought and equip it
+            // check to see what player bought and equip it then update player's currency
             if (itemCost == pistolPrice && !isPistolUnlocked) {
                 isPistolUnlocked = true;
                 currentWeapon = EquipPistol();
