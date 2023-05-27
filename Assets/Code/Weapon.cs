@@ -82,37 +82,30 @@ public class Weapon : MonoBehaviour
         return storeManager.playerCurrency >= itemCost;
     }
 
+    private void updatePlayerCurrency(int itemCost) {
+        storeManager.playerCurrency -= itemCost;
+        storeManager.updateCurrencyText();
+    }
+
     public void buyItem(int itemCost) {
         if (checkIfPlayerCanAfford(itemCost)) {
             // check to see what player bought and equip it
             if (itemCost == pistolPrice && !isPistolUnlocked) {
                 isPistolUnlocked = true;
                 currentWeapon = EquipPistol();
-
-                // update player currency
-                storeManager.playerCurrency -= itemCost;
-                storeManager.updateCurrencyText();
+                updatePlayerCurrency(itemCost);
             } else if (itemCost == smgPrice && !isSmgUnlocked) {
                 isSmgUnlocked = true;
                 currentWeapon = EquipSmg();
-
-                // update player currency
-                storeManager.playerCurrency -= itemCost;
-                storeManager.updateCurrencyText();
+                updatePlayerCurrency(itemCost);
             } else if (itemCost == shotgunPrice && !isShotgunUnlocked) {
                 isShotgunUnlocked = true;
                 currentWeapon = EquipShotgun();
-
-                // update player currency
-                storeManager.playerCurrency -= itemCost;
-                storeManager.updateCurrencyText();
+                updatePlayerCurrency(itemCost);
             } else if (itemCost == godGunPrice && !isGodGunUnlocked) {
                 isGodGunUnlocked = true;
                 currentWeapon = EquipGodGun();
-
-                // update player currency
-                storeManager.playerCurrency -= itemCost;
-                storeManager.updateCurrencyText();
+                updatePlayerCurrency(itemCost);
             } else {
                 Debug.LogError("Invalid item cost or gun is already unlocked.");
             }
