@@ -100,7 +100,7 @@ public class TimerBar : MonoBehaviour
         originalVolume = audioSource.volume;
 
         // lower volume by 80% when entering store
-        audioSource.volume *= 0.8f;
+        audioSource.volume *= 0.2f;
 
         // enable store menu
         storeMenu.SetActive(true);
