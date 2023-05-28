@@ -2753,7 +2753,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &804420079
 Transform:
   m_ObjectHideFlags: 0
@@ -3940,6 +3940,8 @@ MonoBehaviour:
   fill: {fileID: 1609741337}
   timerText: {fileID: 1247898764}
   waveCompleteText: {fileID: 743764132}
+  audioSource: {fileID: 1714335986}
+  originalVolume: 0
   enemySpawner: {fileID: 628490532}
   storeMenu: {fileID: 1899286089}
   player: {fileID: 1689420083}
@@ -10451,7 +10453,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1899286090
 RectTransform:
   m_ObjectHideFlags: 0

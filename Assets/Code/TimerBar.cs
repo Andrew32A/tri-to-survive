@@ -15,6 +15,8 @@ public class TimerBar : MonoBehaviour
     public TextMeshProUGUI timerText;
     public TextMeshProUGUI waveCompleteText;
 
+    public AudioSource audioSource;
+    public float originalVolume;
 
     public GameObject enemySpawner;
     public GameObject storeMenu;
@@ -93,6 +95,12 @@ public class TimerBar : MonoBehaviour
 
         // reset text to blank once done
         waveCompleteText.text = "";
+
+        // store the original volume of the audio source
+        originalVolume = audioSource.volume;
+
+        // lower volume by 80% when entering store
+        audioSource.volume *= 0.8f;
 
         // enable store menu
         storeMenu.SetActive(true);

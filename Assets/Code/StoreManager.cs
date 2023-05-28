@@ -59,6 +59,9 @@ public class StoreManager : MonoBehaviour
         // reset timer
         timer.GetComponent<TimerBar>().RestartTimer();
 
+        // reset audio volume to original audio volume
+        GetComponent<TimerBar>().audioSource.volume = GetComponent<TimerBar>().originalVolume;
+
         // disable store menu
         storeMenu.SetActive(false);
 
