@@ -82,7 +82,7 @@ public class TimeManager : MonoBehaviour
                 lensDistortion.active = true;
 
                 // Speed up player movement
-                player.moveSpeed = 200f;
+                player.moveSpeed = 150f;
             }
             else
             {
@@ -101,6 +101,9 @@ public class TimeManager : MonoBehaviour
 
                     // Revert low pass filter cutoff frequency gradually
                     lowPassFilter.cutoffFrequency = Mathf.Lerp(lowPassFilterCutoff, 22000, progress);
+
+                    // Revert player movement speed
+                    player.moveSpeed = Mathf.Lerp(player.moveSpeed, originalPlayerMoveSpeed, progress);
                 }
                 else
                 {
