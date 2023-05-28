@@ -29,6 +29,9 @@ public class TimeManager : MonoBehaviour
     private bool isBulletTimeActive = false;
     private float bulletTimeTimer = 0f;
 
+    public Player player;
+    private float originalPlayerMoveSpeed;
+
     private void Start()
     {
         // Store the original time scale and fixed delta time
@@ -47,6 +50,9 @@ public class TimeManager : MonoBehaviour
         // Get components
         lowPassFilter = audioSource.GetComponent<AudioLowPassFilter>();
         reverbFilter = audioSource.GetComponent<AudioReverbFilter>();
+
+        // Get original player move speed
+        originalPlayerMoveSpeed = player.moveSpeed;
     }
 
     private void Update()
@@ -74,43 +80,49 @@ public class TimeManager : MonoBehaviour
                 depthOfField.active = true;
                 vignette.active = true;
                 lensDistortion.active = true;
-            }
-                    else
-        {
-            if (revertTimer < revertDuration)
-            {
-                revertTimer += Time.unscaledDeltaTime;
-                float progress = revertTimer / revertDuration;
 
-                // Revert time scale gradually
-                Time.timeScale = Mathf.Lerp(slowdownFactor, originalTimeScale, progress);
-                Time.fixedDeltaTime = Time.timeScale * 0.02f;
-
-                // Revert pitch and volume gradually
-                audioSource.pitch = Mathf.Lerp(slowdownFactor * originalPitch, originalPitch, progress);
-                audioSource.volume = Mathf.Lerp(originalVolume * 0.5f, originalVolume, progress);
-
-                // Revert low pass filter cutoff frequency gradually
-                lowPassFilter.cutoffFrequency = Mathf.Lerp(lowPassFilterCutoff, 22000, progress);
+                // Speed up player movement
+                player.moveSpeed = 200f;
             }
             else
             {
-                isBulletTimeActive = false;
-                bulletTimeTimer = 0f;
-                audioSource.pitch = originalPitch;
-                audioSource.volume = originalVolume;
-                lowPassFilter.cutoffFrequency = 22000;
-                reverbFilter.enabled = false;
+                if (revertTimer < revertDuration)
+                {
+                    revertTimer += Time.unscaledDeltaTime;
+                    float progress = revertTimer / revertDuration;
 
-                depthOfField.active = false;
-                vignette.active = false;
-                lensDistortion.active = false;
+                    // Revert time scale gradually
+                    Time.timeScale = Mathf.Lerp(slowdownFactor, originalTimeScale, progress);
+                    Time.fixedDeltaTime = Time.timeScale * 0.02f;
 
-                // Reset time scale and fixed delta time to their original values
-                Time.timeScale = originalTimeScale;
-                Time.fixedDeltaTime = originalFixedDeltaTime;
-            } }
+                    // Revert pitch and volume gradually
+                    audioSource.pitch = Mathf.Lerp(slowdownFactor * originalPitch, originalPitch, progress);
+                    audioSource.volume = Mathf.Lerp(originalVolume * 0.5f, originalVolume, progress);
 
+                    // Revert low pass filter cutoff frequency gradually
+                    lowPassFilter.cutoffFrequency = Mathf.Lerp(lowPassFilterCutoff, 22000, progress);
+                }
+                else
+                {
+                    isBulletTimeActive = false;
+                    bulletTimeTimer = 0f;
+                    audioSource.pitch = originalPitch;
+                    audioSource.volume = originalVolume;
+                    lowPassFilter.cutoffFrequency = 22000;
+                    reverbFilter.enabled = false;
+
+                    depthOfField.active = false;
+                    vignette.active = false;
+                    lensDistortion.active = false;
+
+                    // Reset time scale and fixed delta time to their original values
+                    Time.timeScale = originalTimeScale;
+                    Time.fixedDeltaTime = originalFixedDeltaTime;
+
+                    // Restore player movement speed
+                    player.moveSpeed = originalPlayerMoveSpeed;
+                }
+            }
         }
     }
 

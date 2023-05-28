@@ -2782,11 +2782,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slowdownFactor: 0.05
-  slowdownLength: 4
+  slowdownLength: 3
   revertDuration: 2
   audioSource: {fileID: 1714335986}
   lowPassFilterCutoff: 500
   postProcessVolume: {fileID: 1761349307}
+  player: {fileID: 1689420087}
 --- !u!1 &866893688
 GameObject:
   m_ObjectHideFlags: 0
