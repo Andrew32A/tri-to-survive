@@ -6,8 +6,12 @@ using UnityEngine.Rendering;
 
 public class TimeManager : MonoBehaviour
 {
-    public float slowdownFactor = 0.05f; // lower the number, the slower it will be
-    public float slowdownLength = 4f;
+    public float slowdownFactor = 0.05f; // Lower the number, the slower it will be
+    public float slowdownLength = 3f;
+    private float originalTimeScale;
+    private float originalFixedDeltaTime;
+    public float revertDuration = 2f; // Duration for the time and pitch reversion
+    private float revertTimer = 0f; // Timer for the reversion
 
     public AudioSource audioSource;
     private float originalPitch;
@@ -22,49 +26,108 @@ public class TimeManager : MonoBehaviour
     private Vignette vignette;
     private LensDistortion lensDistortion;
 
-    void Start() {
-        // get the components from the post-processing volume
-        // postProcessVolume.profile.TryGet(out depthOfField);
+    private bool isBulletTimeActive = false;
+    private float bulletTimeTimer = 0f;
+
+    private void Start()
+    {
+        // Store the original time scale and fixed delta time
+        originalTimeScale = Time.timeScale;
+        originalFixedDeltaTime = Time.fixedDeltaTime;
+
+        // Get the components from the post-processing volume
+        postProcessVolume.profile.TryGet(out depthOfField);
         postProcessVolume.profile.TryGet(out vignette);
         postProcessVolume.profile.TryGet(out lensDistortion);
 
-        // store the original pitch and volume of the audio source
+        // Store the original pitch and volume of the audio source
         originalPitch = audioSource.pitch;
         originalVolume = audioSource.volume;
 
-        // get components
+        // Get components
         lowPassFilter = audioSource.GetComponent<AudioLowPassFilter>();
         reverbFilter = audioSource.GetComponent<AudioReverbFilter>();
     }
 
-    void Update() {
-        Time.timeScale += (1f / slowdownLength) * Time.unscaledDeltaTime;
-        Time.timeScale = Mathf.Clamp(Time.timeScale, 0f, 1f);
+    private void Update()
+    {
+        if (isBulletTimeActive)
+        {
+            bulletTimeTimer += Time.unscaledDeltaTime;
 
-        // disable post processing effect when not in bullet time
-        // depthOfField.active = (Time.timeScale < 1f);
-        vignette.active = (Time.timeScale < 1f);
-        lensDistortion.active = (Time.timeScale < 1f);
+            if (bulletTimeTimer < slowdownLength)
+            {
+                float progress = bulletTimeTimer / slowdownLength;
+                float targetPitch = Mathf.Lerp(originalPitch, slowdownFactor * originalPitch, progress);
+                float targetVolume = Mathf.Lerp(originalVolume, originalVolume * 0.5f, progress);
 
-        // set min and max audio pitch
-        audioSource.pitch = Mathf.Clamp(audioSource.pitch, 0.8f, 1f);
-        
-        if (Time.timeScale < 1f) {
-            audioSource.pitch = Mathf.Lerp(audioSource.pitch, originalPitch, Time.deltaTime);
-            audioSource.volume = originalVolume * 0.5f;
-            audioSource.GetComponent<AudioLowPassFilter>().cutoffFrequency = lowPassFilterCutoff;
-            reverbFilter.enabled = true; // enable reverb when in slow motion
-        } else {
-            audioSource.volume = originalVolume;
-            audioSource.GetComponent<AudioLowPassFilter>().cutoffFrequency = 22000;
-            reverbFilter.enabled = false; // disable reverb when not in slow motion
+                audioSource.pitch = targetPitch;
+                audioSource.volume = targetVolume;
+
+                // Set low pass filter cutoff frequency
+                lowPassFilter.cutoffFrequency = Mathf.Lerp(lowPassFilter.cutoffFrequency, lowPassFilterCutoff, progress);
+
+                // Enable reverb when in slow motion
+                reverbFilter.enabled = true;
+
+                // Disable post-processing effects when not in bullet time
+                depthOfField.active = true;
+                vignette.active = true;
+                lensDistortion.active = true;
+            }
+                    else
+        {
+            if (revertTimer < revertDuration)
+            {
+                revertTimer += Time.unscaledDeltaTime;
+                float progress = revertTimer / revertDuration;
+
+                // Revert time scale gradually
+                Time.timeScale = Mathf.Lerp(slowdownFactor, originalTimeScale, progress);
+                Time.fixedDeltaTime = Time.timeScale * 0.02f;
+
+                // Revert pitch and volume gradually
+                audioSource.pitch = Mathf.Lerp(slowdownFactor * originalPitch, originalPitch, progress);
+                audioSource.volume = Mathf.Lerp(originalVolume * 0.5f, originalVolume, progress);
+
+                // Revert low pass filter cutoff frequency gradually
+                lowPassFilter.cutoffFrequency = Mathf.Lerp(lowPassFilterCutoff, 22000, progress);
+            }
+            else
+            {
+                isBulletTimeActive = false;
+                bulletTimeTimer = 0f;
+                audioSource.pitch = originalPitch;
+                audioSource.volume = originalVolume;
+                lowPassFilter.cutoffFrequency = 22000;
+                reverbFilter.enabled = false;
+
+                depthOfField.active = false;
+                vignette.active = false;
+                lensDistortion.active = false;
+
+                // Reset time scale and fixed delta time to their original values
+                Time.timeScale = originalTimeScale;
+                Time.fixedDeltaTime = originalFixedDeltaTime;
+            } }
+
         }
     }
 
-    public void BulletTime() {
-        Time.timeScale = slowdownFactor;
-        Time.fixedDeltaTime = Time.timeScale * 0.02f;
+    public void BulletTime()
+    {
+        if (!isBulletTimeActive)
+        {
+            isBulletTimeActive = true;
 
-        audioSource.pitch *= 0.95f;
+            // Store the current time scale and fixed delta time
+            originalTimeScale = Time.timeScale;
+            originalFixedDeltaTime = Time.fixedDeltaTime;
+
+            Time.timeScale = slowdownFactor;
+            Time.fixedDeltaTime = Time.timeScale * 0.02f;
+            bulletTimeTimer = 0f; // Reset the bullet time timer
+            revertTimer = 0f; // Reset the revert timer
+        }
     }
 }

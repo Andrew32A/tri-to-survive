@@ -2753,7 +2753,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &804420079
 Transform:
   m_ObjectHideFlags: 0
@@ -2783,6 +2783,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   slowdownFactor: 0.05
   slowdownLength: 4
+  revertDuration: 2
   audioSource: {fileID: 1714335986}
   lowPassFilterCutoff: 500
   postProcessVolume: {fileID: 1761349307}
@@ -3933,7 +3934,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57a5deda4c8f94e92a2c9ff79c339d3d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxTime: 5
+  maxTime: 30
   currentTime: 0
   timerStart: 0
   slider: {fileID: 1317899229}
