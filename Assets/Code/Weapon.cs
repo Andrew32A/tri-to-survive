@@ -20,10 +20,10 @@ public class Weapon : MonoBehaviour
     public StoreManager storeManager;
     
     // weapon prices
-    private int pistolPrice = 20;
-    private int smgPrice = 100;
-    private int shotgunPrice = 250;
-    private int godGunPrice = 1000;
+    private int pistolPrice = 0;
+    private int smgPrice = 20;
+    private int shotgunPrice = 100;
+    private int godGunPrice = 500;
 
     // is weapon unlocked
     private bool isPistolUnlocked = true;
