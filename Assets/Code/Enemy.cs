@@ -15,7 +15,8 @@ public class Enemy : MonoBehaviour
 
     public GameObject coinPrefab;
     public float dropRadius = 0.5f;
-    public int numCoins = 5;
+    public int minCoinsToDrop = 4;
+    public int maxCoinsToDrop = 7; // drops -1 from value, so in this case it would be 6
 
     public Transform player;
     public Transform firePoint;
@@ -98,8 +99,11 @@ public class Enemy : MonoBehaviour
         // remove enemy from scene
         Destroy(gameObject);
 
+        // pick random amount of coins
+        int numCoinsToDrop = Random.Range(minCoinsToDrop, maxCoinsToDrop);
+
         // drop coins
-        for (int i = 0; i < numCoins; i++) {
+        for (int i = 0; i < numCoinsToDrop; i++) {
             Vector2 randomPosition = Random.insideUnitCircle.normalized * dropRadius;
             Instantiate(coinPrefab, transform.position + new Vector3(randomPosition.x, randomPosition.y, 0f), Quaternion.identity);
         }
