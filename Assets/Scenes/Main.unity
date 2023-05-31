@@ -3088,7 +3088,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Pistol
+  m_text: 'God Gun
 
 '
   m_isRightToLeft: 0
@@ -3794,9 +3794,11 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Spread - Low
+  m_text: 'Spread - High
 
-    Damage - Low
+    Damage - Medium
+
+    Fire rate - Medium
 
     Semi-Auto'
   m_isRightToLeft: 0
@@ -3933,11 +3935,14 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Spread - Low
+  m_text: 'Spread - Medium
 
-    Damage - Low
+    Damage - Extreme
 
-    Semi-Auto'
+    Fire Rate - Extreme
+
+    Fully
+    Automatic'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 692ffa7a3e4784108bc8c42de60dc2dc, type: 2}
   m_sharedMaterial: {fileID: -7204555203995353058, guid: 692ffa7a3e4784108bc8c42de60dc2dc, type: 2}
@@ -11011,7 +11016,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Pistol
+  m_text: 'SMG
 
 '
   m_isRightToLeft: 0
@@ -11812,11 +11817,13 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Spread - Low
+  m_text: 'Spread - High
 
     Damage - Low
 
-    Semi-Auto'
+    Fire rate - High
+
+    Fully Automatic'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 692ffa7a3e4784108bc8c42de60dc2dc, type: 2}
   m_sharedMaterial: {fileID: -7204555203995353058, guid: 692ffa7a3e4784108bc8c42de60dc2dc, type: 2}
@@ -12081,7 +12088,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Pistol
+  m_text: 'Shotgun
 
 '
   m_isRightToLeft: 0
@@ -12221,6 +12228,8 @@ MonoBehaviour:
   m_text: 'Spread - Low
 
     Damage - Low
+
+    Fire rate - Low
 
     Semi-Auto'
   m_isRightToLeft: 0
