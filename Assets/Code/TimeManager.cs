@@ -22,7 +22,6 @@ public class TimeManager : MonoBehaviour
     private AudioReverbFilter reverbFilter;
 
     public Volume postProcessVolume;
-    private DepthOfField depthOfField;
     private Vignette vignette;
     private LensDistortion lensDistortion;
 
@@ -39,7 +38,6 @@ public class TimeManager : MonoBehaviour
         originalFixedDeltaTime = Time.fixedDeltaTime;
 
         // Get the components from the post-processing volume
-        postProcessVolume.profile.TryGet(out depthOfField);
         postProcessVolume.profile.TryGet(out vignette);
         postProcessVolume.profile.TryGet(out lensDistortion);
 
@@ -77,7 +75,6 @@ public class TimeManager : MonoBehaviour
                 reverbFilter.enabled = true;
 
                 // Disable post-processing effects when not in bullet time
-                depthOfField.active = true;
                 vignette.active = true;
                 lensDistortion.active = true;
 
@@ -114,7 +111,6 @@ public class TimeManager : MonoBehaviour
                     lowPassFilter.cutoffFrequency = 22000;
                     reverbFilter.enabled = false;
 
-                    depthOfField.active = false;
                     vignette.active = false;
                     lensDistortion.active = false;
 

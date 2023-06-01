@@ -4449,9 +4449,9 @@ MonoBehaviour:
 
     Damage - Medium
 
-    Fire rate - Medium
+    Fire rate - Low
 
-    Semi-Auto'
+    Fully Automatic'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 692ffa7a3e4784108bc8c42de60dc2dc, type: 2}
   m_sharedMaterial: {fileID: -7204555203995353058, guid: 692ffa7a3e4784108bc8c42de60dc2dc, type: 2}
@@ -13181,7 +13181,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6727946097608203881, guid: 92b943b4b44c04057a431e8428b17d36, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 92b943b4b44c04057a431e8428b17d36, type: 3}
