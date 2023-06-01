@@ -20,6 +20,9 @@ public class Weapon : MonoBehaviour
     public GameObject godGunScript;
     public StoreManager storeManager;
 
+    // TODO: place weapons in a dict with values below
+
+    // weapon text
     public TextMeshProUGUI pistolCardButtonText;
     public TextMeshProUGUI smgCardButtonText;
     public TextMeshProUGUI shotgunCardButtonText;
@@ -93,6 +96,7 @@ public class Weapon : MonoBehaviour
         storeManager.updateCurrencyText();
     }
 
+    // conditionals go brr (im sure there's a better way to do this, but it works so im leaving it for now)
     public void buyItem(int itemCost) {
         // update all weapons card buy button to "equip" if weapon is already bought
         setWeaponsEquipText();
@@ -140,7 +144,7 @@ public class Weapon : MonoBehaviour
                     godGunCardButtonText.text = "Equipped";
                 }
             } else {
-                Debug.LogError("Invalid item cost or gun is already unlocked.");
+                Debug.LogError("Invalid item cost");
             }
 
         } else {
