@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 // menu of functions that it's expecting the class to have, polymorphism
 public interface IWeapon {
@@ -18,6 +19,11 @@ public class Weapon : MonoBehaviour
     public GameObject shotgunScript;
     public GameObject godGunScript;
     public StoreManager storeManager;
+
+    public TextMeshProUGUI pistolCardButtonText;
+    public TextMeshProUGUI smgCardButtonText;
+    public TextMeshProUGUI shotgunCardButtonText;
+    public TextMeshProUGUI godGunCardButtonText;
     
     // weapon prices
     private int pistolPrice = 0;
@@ -88,39 +94,50 @@ public class Weapon : MonoBehaviour
     }
 
     public void buyItem(int itemCost) {
+        // update all weapons card buy button to "equip" if weapon is already bought
+        setWeaponsEquipText();
+
         if (checkIfPlayerCanAfford(itemCost)) {
             // check to see what player bought and equip it then update player's currency
             if (itemCost == pistolPrice) {
                 if (!isPistolUnlocked) {
                     isPistolUnlocked = true;
                     currentWeapon = EquipPistol();
+                    pistolCardButtonText.text = "Equipped";
                     updatePlayerCurrency(itemCost);
                 } else if (isPistolUnlocked) {
                     currentWeapon = EquipPistol();
+                    pistolCardButtonText.text = "Equipped";
                 }
             } else if (itemCost == smgPrice) {
                 if (!isSmgUnlocked) {
                     isSmgUnlocked = true;
                     currentWeapon = EquipSmg();
+                    smgCardButtonText.text = "Equipped";
                     updatePlayerCurrency(itemCost);
                 } else if (isSmgUnlocked) {
                     currentWeapon = EquipSmg();
+                    smgCardButtonText.text = "Equipped";
                 }
             } else if (itemCost == shotgunPrice) {
                 if (!isShotgunUnlocked) {
                     isShotgunUnlocked = true;
                     currentWeapon = EquipShotgun();
+                    shotgunCardButtonText.text = "Equipped";
                     updatePlayerCurrency(itemCost);
                 } else if (isShotgunUnlocked) {
                     currentWeapon = EquipShotgun();
+                    shotgunCardButtonText.text = "Equipped";
                 }
             } else if (itemCost == godGunPrice) {
                 if (!isGodGunUnlocked) {
                     isGodGunUnlocked = true;
                     currentWeapon = EquipGodGun();
+                    godGunCardButtonText.text = "Equipped";
                     updatePlayerCurrency(itemCost);
                 } else if (isGodGunUnlocked) {
                     currentWeapon = EquipGodGun();
+                    godGunCardButtonText.text = "Equipped";
                 }
             } else {
                 Debug.LogError("Invalid item cost or gun is already unlocked.");
@@ -129,6 +146,24 @@ public class Weapon : MonoBehaviour
         } else {
             // TODO: code to handle if the player can't afford the item
             Debug.Log("player doesn't have enough money, tried to buy: " + itemCost);
+        }
+    }
+
+    public void setWeaponsEquipText() {
+        if (isPistolUnlocked) {
+            pistolCardButtonText.text = "Equip";
+        }
+
+        if (isSmgUnlocked) {
+            smgCardButtonText.text = "Equip";
+        }
+
+        if (isShotgunUnlocked) {
+            shotgunCardButtonText.text = "Equip";
+        }
+
+        if (isGodGunUnlocked) {
+            godGunCardButtonText.text = "Equip";
         }
     }
 
