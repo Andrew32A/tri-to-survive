@@ -16,6 +16,7 @@ public class StoreManager : MonoBehaviour
     public GameObject player;
     public GameObject timer;
     public GameObject playerUI;
+    public GameObject crosshair;
 
     public void updateCurrencyText() {
         currencyText.text = "$" + playerCurrency.ToString();
@@ -61,6 +62,12 @@ public class StoreManager : MonoBehaviour
 
         // reset audio volume to original audio volume
         timer.GetComponent<TimerBar>().audioSource.volume = timer.GetComponent<TimerBar>().originalVolume;
+
+        // enable crosshair
+        crosshair.SetActive(true);
+
+        // disable default cursor
+        Cursor.visible = false;
 
         // disable store menu
         storeMenu.SetActive(false);

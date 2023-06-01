@@ -1763,6 +1763,7 @@ MonoBehaviour:
   player: {fileID: 1689420083}
   timer: {fileID: 1317899227}
   playerUI: {fileID: 1377652660}
+  crosshair: {fileID: 10981996}
 --- !u!1 &254593612
 GameObject:
   m_ObjectHideFlags: 0
@@ -5862,6 +5863,7 @@ MonoBehaviour:
   storeMenu: {fileID: 1899286089}
   player: {fileID: 1689420083}
   playerUI: {fileID: 1377652660}
+  crosshair: {fileID: 10981996}
 --- !u!1 &1322103993
 GameObject:
   m_ObjectHideFlags: 0

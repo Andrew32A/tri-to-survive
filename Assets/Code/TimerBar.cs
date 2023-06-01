@@ -22,6 +22,7 @@ public class TimerBar : MonoBehaviour
     public GameObject storeMenu;
     public GameObject player;
     public GameObject playerUI;
+    public GameObject crosshair;
 
     void Start() {
         currentTime = maxTime;
@@ -101,6 +102,12 @@ public class TimerBar : MonoBehaviour
 
         // lower volume by 80% when entering store
         audioSource.volume *= 0.2f;
+
+        // disable crosshair
+        crosshair.SetActive(false);
+
+        // enable default cursor
+        Cursor.visible = true;
 
         // enable store menu
         storeMenu.SetActive(true);
