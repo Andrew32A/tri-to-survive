@@ -98,17 +98,16 @@ public class Weapon : MonoBehaviour
 
     // conditionals go brr (im sure there's a better way to do this, but it works so im leaving it for now)
     public void buyItem(int itemCost) {
-    // update all weapons card buy button to "equip" if weapon is already bought
-    setWeaponsEquipText();
-
         // check to see what player bought and equip it then update player's currency
         if (itemCost == pistolPrice) {
             if (!isPistolUnlocked && checkIfPlayerCanAfford(itemCost)) {
                 isPistolUnlocked = true;
+                setWeaponsEquipText();
                 currentWeapon = EquipPistol();
                 pistolCardButtonText.text = "Equipped";
                 updatePlayerCurrency(itemCost);
             } else if (isPistolUnlocked) {
+                setWeaponsEquipText();
                 currentWeapon = EquipPistol();
                 pistolCardButtonText.text = "Equipped";
             } else {
@@ -117,10 +116,12 @@ public class Weapon : MonoBehaviour
         } else if (itemCost == smgPrice) {
             if (!isSmgUnlocked && checkIfPlayerCanAfford(itemCost)) {
                 isSmgUnlocked = true;
+                setWeaponsEquipText();
                 currentWeapon = EquipSmg();
                 smgCardButtonText.text = "Equipped";
                 updatePlayerCurrency(itemCost);
             } else if (isSmgUnlocked) {
+                setWeaponsEquipText();
                 currentWeapon = EquipSmg();
                 smgCardButtonText.text = "Equipped";
             } else {
@@ -129,10 +130,12 @@ public class Weapon : MonoBehaviour
         } else if (itemCost == shotgunPrice) {
             if (!isShotgunUnlocked && checkIfPlayerCanAfford(itemCost)) {
                 isShotgunUnlocked = true;
+                setWeaponsEquipText();
                 currentWeapon = EquipShotgun();
                 shotgunCardButtonText.text = "Equipped";
                 updatePlayerCurrency(itemCost);
             } else if (isShotgunUnlocked) {
+                setWeaponsEquipText();
                 currentWeapon = EquipShotgun();
                 shotgunCardButtonText.text = "Equipped";
             } else {
@@ -140,11 +143,13 @@ public class Weapon : MonoBehaviour
             }
         } else if (itemCost == godGunPrice) {
             if (!isGodGunUnlocked && checkIfPlayerCanAfford(itemCost)) {
+                setWeaponsEquipText();
                 isGodGunUnlocked = true;
                 currentWeapon = EquipGodGun();
                 godGunCardButtonText.text = "Equipped";
                 updatePlayerCurrency(itemCost);
             } else if (isGodGunUnlocked) {
+                setWeaponsEquipText();
                 currentWeapon = EquipGodGun();
                 godGunCardButtonText.text = "Equipped";
             } else {
@@ -158,6 +163,7 @@ public class Weapon : MonoBehaviour
         Debug.Log("player doesn't have enough money, tried to buy: " + itemCost);
     }
 
+    // update all weapons card buy button to "equip" if weapon is already bought
     public void setWeaponsEquipText() {
         if (isPistolUnlocked) {
             pistolCardButtonText.text = "Equip";
