@@ -22,12 +22,12 @@ public class PlayerHpBar : MonoBehaviour
     }
 
     public void resetHpBar(int hp) {
-        if (hp < 1) {
+        if (hp <= 1) {
             low.SetActive(true);
-        } else if (hp < 2) {
+        } else if (hp <= 2) {
             low.SetActive(true);
             medium.SetActive(true);
-        } else if (hp < 3) {
+        } else if (hp <= 3) {
             low.SetActive(true);
             medium.SetActive(true);
             high.SetActive(true);
