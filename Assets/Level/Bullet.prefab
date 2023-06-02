@@ -139,7 +139,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 20
-  damage: 25
+  damage: 1
   rb: {fileID: 2997414979421653398}
 --- !u!96 &1901831145639112967
 TrailRenderer:

@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnemyBullet : MonoBehaviour
 {
     public float speed = 10f;
-    public int damage = 25;
+    public int damage = 1;
     public Rigidbody2D rb;
 
     void Start() {

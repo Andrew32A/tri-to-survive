@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    public int maxHealth = 75;
+    public int maxHealth = 3;
     private int currentHealth;
     public PlayerHpBar HpBar;
     public float moveSpeed = 12f;
@@ -56,6 +56,11 @@ public class Player : MonoBehaviour
         if (currentHealth <= 0) {
             Die();
         }
+    }
+
+    public void healPlayer(int healAmount) {
+        currentHealth = healAmount;
+        HpBar.resetHpBar(currentHealth);
     }
 
     void Die() {

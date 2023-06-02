@@ -5,7 +5,7 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     public string EnemyType;
-    public int maxHealth = 100;
+    public int maxHealth = 4;
     private int currentHealth;
     public EnemyHpBar HpBar;
     public int rotationOffset = 90;

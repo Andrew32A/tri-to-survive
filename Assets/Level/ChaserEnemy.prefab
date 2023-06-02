@@ -435,14 +435,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EnemyType: chaser
-  maxHealth: 100
+  maxHealth: 4
   HpBar: {fileID: 1423473833125349204}
   rotationOffset: 90
   fireRate: 1.5
   movementSpeed: 5
   coinPrefab: {fileID: 6556520947214592377, guid: 52d362a524e5b40f994fd8ff55718f56, type: 3}
   dropRadius: 0.5
-  numCoins: 5
+  minCoinsToDrop: 4
+  maxCoinsToDrop: 7
   player: {fileID: 0}
   firePoint: {fileID: 1423473833009778622}
   bulletPrefab: {fileID: 2997414979421653399, guid: b61bd6cecf2464ee6861bb221950e8f1, type: 3}

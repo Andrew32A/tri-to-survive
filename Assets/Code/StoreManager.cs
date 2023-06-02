@@ -46,6 +46,9 @@ public class StoreManager : MonoBehaviour
         // enable player
         player.SetActive(true);
 
+        // heal player to full
+        player.GetComponent<Player>().healPlayer(player.GetComponent<Player>().maxHealth); 
+
         // enable player input
         player.GetComponent<Weapon>().canInput = true;
 

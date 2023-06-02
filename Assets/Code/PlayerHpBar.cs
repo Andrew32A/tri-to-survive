@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerHpBar : MonoBehaviour
 {
-    // high == 75 hp, medium == 50 hp, low == 25 hp
+    // high == 3 hp, medium == 2 hp, low == 1 hp
     public GameObject high;
     public GameObject medium;
     public GameObject low;
@@ -12,12 +12,25 @@ public class PlayerHpBar : MonoBehaviour
     public void UpdateHpBar(int hp) {
         // TODO: add an explosion animation with unity's particle system and screenshake
 
-        if (hp < 25) {
-            Destroy(low);
-        } else if (hp < 50) {
-            Destroy(medium);
-        } else if (hp < 75) {
-            Destroy(high);
+        if (hp < 1) {
+            low.SetActive(false);
+        } else if (hp < 2) {
+            medium.SetActive(false);
+        } else if (hp < 3) {
+            high.SetActive(false);
+        }
+    }
+
+    public void resetHpBar(int hp) {
+        if (hp < 1) {
+            low.SetActive(true);
+        } else if (hp < 2) {
+            low.SetActive(true);
+            medium.SetActive(true);
+        } else if (hp < 3) {
+            low.SetActive(true);
+            medium.SetActive(true);
+            high.SetActive(true);
         }
     }
 }
