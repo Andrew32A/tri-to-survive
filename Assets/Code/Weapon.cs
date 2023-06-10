@@ -98,7 +98,7 @@ public class Weapon : MonoBehaviour
 
     // conditionals go brr (im sure there's a better way to do this, but it works so im leaving it for now)
     public void buyItem(int itemCost) {
-        // check to see what player bought and equip it then update player's currency
+        // check to see what player bought, equip it then update player's currency, update text
         if (itemCost == pistolPrice) {
             if (!isPistolUnlocked && checkIfPlayerCanAfford(itemCost)) {
                 isPistolUnlocked = true;
