@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - Enemy
+  - StoreMenu
   layers:
   - Default
   - TransparentFX
